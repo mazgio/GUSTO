@@ -1,0 +1,59 @@
+
+.containerAbout {
+    
+    position: relative;
+    flex: 1 1;
+    display: flex;
+    flex-direction: column;
+    padding: 5rem;
+    margin-left: 10px;
+}
+
+.containerPresentation{
+margin-bottom:10px;
+line-height:1.6;
+display: flex;
+justify-content:flex-start;
+color: #ffa101;
+font-size: 2rem;
+font-weight: 600;
+}
+
+
+.textPresentation{
+    margin-top:auto;
+    margin-right:10px;
+    line-height:1.5;
+
+}
+
+.teamAbout{
+    display: flex;
+    justify-content: center;
+}
+
+
+@media only screen and (max-width: 415px) {
+    .containerPresentation{
+        position: relative;
+        margin-bottom:10px;
+        line-height:1.6;
+        }
+
+
+    .containerAbout{
+       
+        position: relative;
+        top:-10rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding:9rem;
+        margin-left:10px;
+    }
+
+
+    
+  }
+
+ 

@@ -1,0 +1,13 @@
+/*Start Text Area*/
+.message{
+    min-height: 10rem;
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    resize: none;
+}
+
+.message:focus{
+    outline: none;
+}
+/*End Text Area*/

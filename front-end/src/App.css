@@ -1,0 +1,42 @@
+/*Start general styles*/
+
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
+
+:root{
+    --first-color: #ffa101;
+    --second-color: #31525b;
+    --third-color: #fae6b1;
+    --main-transition: 0.3s;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+*{
+    font-family: 'Maven Pro', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*End general styles*/
+
+/*Home page style*/
+.home{
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.container{
+    width: 100%;
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+/*Home page style*/
+
+input[type="file"] {
+    width: -webkit-fill-available;
+}
