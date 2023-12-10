@@ -1,73 +1,63 @@
-
-.about{
-   display: inline-block;
-   margin: 1rem;
-   padding: 2rem;
-   width: 150px;
-   height: 150px;
-   overflow: hidden;
-   border-radius: 50%;
-
-} 
-   
-   
-.about img { 
-    width: 100px;
-    height: 100px;
+.about {
+  display: inline-block;
+  margin: 1rem;
+  padding: 2rem;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 50%;
 }
 
+.about img {
+  width: 100px;
+  height: 100px;
+}
 
+@media only screen and (max-width: 800px) {
+  .about {
+    display: inline-block;
+    position: relative;
 
-  @media only screen and (max-width: 800px) {
-    .about {
-        display: inline-block;
-        position: relative;
-       
-        width: 180px;
-        height: 180px;
-        overflow: hidden;
-        border-radius: 50%;
-     
-    }
+    width: 180px;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 50%;
   }
-
+}
 
 @media only screen and (max-width: 600px) {
-    .about {
-        display: inline-block;
-        position: relative;
-       
-        width: 150px;
-        height: 150px;
-        overflow: hidden;
-        border-radius: 50%;
-     
-    }
-  }
+  .about {
+    display: inline-block;
+    position: relative;
 
-  @media only screen and (max-width: 465px) {
-    .about {
-        display: inline-block;
-        position: relative;
-       bottom: 20rem;
-       left:2rem;
-        width: 9rem;
-        height: 9rem;
-        overflow: hidden;
-        border-radius: 50%;
-     
-    }
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 50%;
   }
+}
 
-  @media only screen and (max-width: 425px) {
-    .about {
-        display: none;
-        position: relative;
-       left:13rem;
-        width: 5rem;
-        height: 5rem;
-        overflow: hidden;
-        border-radius: 50%;
-     
-    }
+@media only screen and (max-width: 465px) {
+  .about {
+    display: inline-block;
+    position: relative;
+    bottom: 20rem;
+    left: 2rem;
+    width: 9rem;
+    height: 9rem;
+    overflow: hidden;
+    border-radius: 50%;
   }
+}
+
+@media only screen and (max-width: 425px) {
+  .about {
+    display: none;
+    position: relative;
+    left: 13rem;
+    width: 5rem;
+    height: 5rem;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+}

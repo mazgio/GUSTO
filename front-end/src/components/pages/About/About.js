@@ -14,11 +14,11 @@ align-items: center;
 height: 100vh;
 background-color:#31525b;
 @media screen and (max-width: 315px){
- height:110vh;
+height:110vh;
 };
 @media screen and (max-width: 295px){
   height:120vh;
- };
+};
 `;
 
 const Button = styled.button`
@@ -35,12 +35,11 @@ font-size: 18px;
 cursor: pointer;
 @media screen and (max-width: 444px){
   position: relative;
- bottom:2rem;
- };
- @media screen and (max-width: 414px){
+  bottom:2rem;
+};
+@media screen and (max-width: 414px){
   position: relative;
- bottom:17rem;
- };
+};
 `;
 
 const About = () => {

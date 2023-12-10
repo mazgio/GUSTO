@@ -17,6 +17,15 @@ import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import ContainerSearch from "../../../../SearchPage.js";
 import products from "../../../images/products.jpg";
 import "./HomeBusiness.css";
+import styled from "styled-components";
+
+const StyledContainer = styled.div`
+  margin: 10px;
+`;
+
+const ContactContainer = styled.div`
+  width: 100%;
+`;
 
 const theme = createTheme({
   palette: {
@@ -46,7 +55,7 @@ export const HomeBusiness = () => {
 
   return (
     <div style={{ margin: "10px" }} className="services">
-      <Container maxWidth="lg">
+      <Container maxWidth="xm">
         <div position="static" color="inherit">
           <div className="flexBusiness">
             <div className="imageContainer">
@@ -61,11 +70,15 @@ export const HomeBusiness = () => {
         </div>
 
         <div className="services-container">
-          <ThemeProvider theme={theme}>
-            <ContainerSearch />
-          </ThemeProvider>
+          <StyledContainer>
+            <ThemeProvider theme={theme}>
+              <ContainerSearch />
+            </ThemeProvider>
+          </StyledContainer>
         </div>
-        <Contact />
+        <ContactContainer>
+          <Contact />
+        </ContactContainer>
       </Container>
     </div>
   );
