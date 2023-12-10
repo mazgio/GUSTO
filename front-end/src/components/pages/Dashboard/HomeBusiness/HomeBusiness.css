@@ -1,0 +1,28 @@
+/* YourComponent.css */
+
+.flexBusiness {
+  /* Add any styles you need for the outer container */
+}
+
+.imageContainer {
+  position: relative;
+}
+
+.businessImg {
+  width: 100%; /* Ensure the image takes the full width of its container */
+  display: block; /* Remove extra space reserved for descenders in text */
+}
+
+.overlayText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white; /* Set the text color to be visible on top of the image */
+}
+
+.servicesTitle {
+  font-size: 2rem; /* Adjust the font size as needed */
+  /* Add any other styles you want for the title */
+}

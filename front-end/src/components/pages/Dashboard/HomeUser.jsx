@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../../../context/AuthProvider.js";
 import Logout from "../../Logout.jsx";
 import styled from "styled-components";
-import { HomeBusiness } from "./HomeBusiness.jsx";
+import { HomeBusiness } from "./HomeBusiness/HomeBusiness.jsx";
 import { HomeCustomer } from "./HomeCustomer.jsx";
 
 const Name = styled.div`

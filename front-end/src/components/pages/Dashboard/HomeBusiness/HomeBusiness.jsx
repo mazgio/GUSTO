@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Posts from "../../Posts/Posts.js";
-import { getPosts } from "../../../actions/posts.js";
+import Posts from "../../../Posts/Posts.js";
+import { getPosts } from "../../../../actions/posts.js";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
-import "../Home/Home.css";
-import makeStyles from "./styles";
-import Contact from "../Contact/Contact";
+import "../../Home/Home.css";
+import makeStyles from "../styles.js";
+import Contact from "../../Contact/Contact.js";
 import {
   Paper,
   Divider,
@@ -14,8 +14,9 @@ import {
   Container,
 } from "@material-ui/core";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
-import ContainerSearch from "../../../SearchPage.js";
-import products from "../../images/products.jpg";
+import ContainerSearch from "../../../../SearchPage.js";
+import products from "../../../images/products.jpg";
+import "./HomeBusiness.css";
 
 const theme = createTheme({
   palette: {
@@ -48,13 +49,13 @@ export const HomeBusiness = () => {
       <Container maxWidth="lg">
         <div position="static" color="inherit">
           <div className="flexBusiness">
-            <img className="businessImg" src={products} alt="products" />
-            <div
-              className="servicesTitle"
-              style={{ width: "50%", alignItems: "center" }}
-              variant="h2"
-            >
-              Gusto´s Products
+            <div className="imageContainer">
+              <img className="businessImg" src={products} alt="products" />
+              <div className="overlayText">
+                <div className="servicesTitle" variant="h2">
+                  Gusto´s Products
+                </div>
+              </div>
             </div>
           </div>
         </div>
