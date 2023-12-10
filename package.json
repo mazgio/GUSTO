@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/A-Arcanjo/final-project-team-1/issues"
   },
-  "homepage": "https://github.com/A-Arcanjo/final-project-team-1#readme"
+  "homepage": "https://github.com/A-Arcanjo/final-project-team-1#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.23.4",
+    "@babel/core": "^7.23.5",
+    "@babel/preset-env": "^7.23.5"
+  }
 }
