@@ -1,59 +1,35 @@
-
 .containerAbout {
-    
-    position: relative;
-    flex: 1 1;
-    display: flex;
-    flex-direction: column;
-    padding: 5rem;
-    margin-left: 10px;
-}
-
-.containerPresentation{
-margin-bottom:10px;
-line-height:1.6;
-display: flex;
-justify-content:flex-start;
-color: #ffa101;
-font-size: 2rem;
-font-weight: 600;
+  margin-bottom: 10px;
+  line-height: 1.6;
+  color: #ffa101;
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 
 
-.textPresentation{
-    margin-top:auto;
-    margin-right:10px;
-    line-height:1.5;
-
+.textPresentation {
+  position:absolute;
+  top:155px;
+  left:20px;
+  margin-top: 10px;
+  line-height: 1.5;
+  width:91%;
+  padding:0.5rem
 }
 
-.teamAbout{
-    display: flex;
-    justify-content: center;
+.teamAbout {
+  display: flex;
+  justify-content: center;
 }
 
-
-@media only screen and (max-width: 415px) {
-    .containerPresentation{
-        position: relative;
-        margin-bottom:10px;
-        line-height:1.6;
-        }
-
-
-    .containerAbout{
-       
-        position: relative;
-        top:-10rem;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        padding:9rem;
-        margin-left:10px;
-    }
-
-
-    
+@media only screen and (max-width: 390px) {
+  .containerPresentation {
+  
   }
 
- 
+  .containerAbout {
+    position: relative;
+    top: -10rem;
+    padding: 9rem;
+  }
+}

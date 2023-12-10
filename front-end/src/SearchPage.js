@@ -90,7 +90,7 @@ const ContainerSearch = () => {
                             <Grid item xs={12} sm={6} md={9}>
                                 <Posts sForm={sForm} setCurrentId={setCurrentId} />
                             </Grid>
-                            <Grid style={{ paddingLeft: '1rem' }} item xs={12} sm={6} md={3}> {/*xs: extra small devices(fullWidth), sm:small devices, md:medium devices*/}
+                            <Grid  item xs={12} sm={6} md={3}> {/*xs: extra small devices(fullWidth), sm:small devices, md:medium devices*/}
 
                                 <AppBar className={classes.appBarSearch} position="static" color="inherit">
                                     <TextField onKeyDown={handleKeyPress} name="search" variant="outlined" label="Search Products" fullWidth value={search} onChange={(e) => setSearch(e.target.value)} />
