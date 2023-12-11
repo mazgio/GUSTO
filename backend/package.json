@@ -1,8 +1,10 @@
 {
-  "name": "final-project-team-1-backend",
+  "name": "gusto",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
@@ -26,6 +28,5 @@
     "multer": "^1.4.4",
     "multer-gridfs-storage": "^5.0.2",
     "react-file-base64": "^1.0.3"
-  },
-  "type": "module"
+  }
 }
