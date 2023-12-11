@@ -54,4 +54,7 @@ export default makeStyles({
         display: 'block',
         textAlign: 'initial',
     },
+    button : {
+      minWidth: '20px',
+    }
 });
