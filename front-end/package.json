@@ -2,9 +2,7 @@
   "name": "front-end",
   "version": "0.1.0",
   "private": true,
-  "babel": {
-    "presets": ["@babel/preset-env", "@babel/preset-react"]
-  },
+  "type": "module",
   "dependencies": {
     "@emailjs/browser": "^3.6.2",
     "@emotion/react": "^11.9.3",
