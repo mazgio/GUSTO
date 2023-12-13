@@ -1,3 +1,4 @@
+import path from 'path';
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -23,7 +24,9 @@ const app = express();
 dotenv.config();
 
 // connect to mongodb
-mongoose.connect(("mongodb+srv://mazzucagiorgio:8X0ZhvSXpl95JRve@cluster0.reag555.mongodb.net/"));
+mongoose.connect(("process.env.MONGO_URI"));
+
+const port = process.env.PORT || 3000;
 
 // check mongodb connection
 mongoose.connection.on("open", () =>
@@ -64,6 +67,16 @@ app.use('/posts', postRoutes);
 
 app.use(globalErrorHandler);
 
-app.listen(3001, () => {
-  console.log(`Server has started on port  3001!`);
+// Serve frontend
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+  app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, '../', 'frontend', 'build', 'index.html')));
+} else {
+  app.get('/', (req, res) => res.send('Please set to production'));
+}
+
+app.listen(port, () => {
+  console.log(`Server has started on port  3000!`);
 });
