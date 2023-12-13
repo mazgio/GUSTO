@@ -24,7 +24,7 @@ const app = express();
 dotenv.config();
 
 // connect to mongodb
-mongoose.connect(("process.env.MONGO_URI"));
+mongoose.connect((process.env.MONGO_URI));
 
 const port = process.env.PORT || 3000;
 
@@ -78,5 +78,5 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.listen(port, () => {
-  console.log(`Server has started on port  3000!`);
+  console.log(`Server has started on port  ${port}!`);
 });
