@@ -17,7 +17,7 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
-    "axios": "^0.27.2",
+    "axios": "^1.6.2",
     "babel-plugin-macros": "^3.1.0",
     "cors": "^2.8.5",
     "emailjs": "^4.0.1",
@@ -27,7 +27,7 @@
     "moment": "^2.29.4",
     "mongodb": "^4.8.1",
     "multer": "^1.4.4",
-    "multer-gridfs-storage": "^5.0.2",
+    "multer-gridfs-storage": "^1.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-file-base64": "^1.0.3",
@@ -37,7 +37,7 @@
     "react-redux": "^8.0.2",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^3.0.1",
     "react-spring": "^9.5.2",
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1",
@@ -49,7 +49,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm config set NODE_ENV=production && npm install --production=false --prefix frontend && npm run build --prefix frontend"
+
   },
   "eslintConfig": {
     "extends": [
