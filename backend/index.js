@@ -24,7 +24,7 @@ dotenv.config();
 
 // connect to mongodb
 mongoose.connect(
-  `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.pptto.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
+  `mongodb+srv://mazzucagiorgio:8X0ZhvSXpl95JRve@cluster0.reag555.mongodb.net/`
 );
 
 // check mongodb connection
