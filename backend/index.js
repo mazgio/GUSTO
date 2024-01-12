@@ -23,7 +23,9 @@ const app = express();
 dotenv.config();
 
 // connect to mongodb
-mongoose.connect(("mongodb+srv://mazzucagiorgio:8X0ZhvSXpl95JRve@cluster0.reag555.mongodb.net/"));
+mongoose.connect(
+  `mongodb+srv://mazzucagiorgio:8X0ZhvSXpl95JRve@cluster0.reag555.mongodb.net/`
+);
 
 // check mongodb connection
 mongoose.connection.on("open", () =>
