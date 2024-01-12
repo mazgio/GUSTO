@@ -15,110 +15,110 @@ import Pagination from './components/Pagination.jsx';
 import { useSearchParams } from "react-router-dom";
 
 const theme = createTheme({
-    palette: {
-        primary: {
-            main: '#ffa101',
-            contrastText: '#31525b',
-        },
-    }
+  palette: {
+    primary: {
+      main: '#ffa101',
+      contrastText: '#31525b',
+    },
+  }
 });
 
 function useQuery() {
-    return new URLSearchParams(useLocation().search);
+  return new URLSearchParams(useLocation().search);
 }
 
 const ContainerSearch = () => {
-    const classes = useStyles();  //use styles inside the code through classes
-    const query = useQuery();
-    const page = query.get('page') || 1;
-    //const searchQuery = query.get('searchQuery');
-    const { search: searchLocation } = useLocation();
-    const [currentId, setCurrentId] = useState(0); //useState will be null if we don´t have any id selected
-    const dispatch = useDispatch(); //use as an Hook , dispatch in every new component the action that we want to use
+  const classes = useStyles();  //use styles inside the code through classes
+  const query = useQuery();
+  const page = query.get('page') || 1;
+  //const searchQuery = query.get('searchQuery');
+  const { search: searchLocation } = useLocation();
+  const [currentId, setCurrentId] = useState(0); //useState will be null if we don´t have any id selected
+  const dispatch = useDispatch(); //use as an Hook , dispatch in every new component the action that we want to use
 
-    const [search, setSearch] = useState('');
-    const [tags, setTags] = useState([]);
-    const navigate = useNavigate();
-    const [searchParams, setSearchParams] = useSearchParams();
-
-
-    useEffect(() => {
-        console.log("getting Post");
-        console.log("searchParams", searchParams.get("searchQuery"));
-        if (!searchParams.get("searchQuery")) {
-            console.log("loading post");
-            setTimeout(() => {
-                dispatch(getPosts(page)); //dispatch actions inside useEffect, in our case getPosts()
-            }, 200);
-        }
-    }, [currentId, page, dispatch]); //change the current id in the app, is going to dispatch to get post action, every change we get new post
-
-    useEffect(() => {
-        console.log("search changes");
-        dispatch(getPostsBySearch({ search: searchParams.get("searchQuery"), tags: tags.join(',') }));
-    }, [searchLocation]);
-
-    const searchPost = () => {
-        if (search.trim() || tags) {
-            //dispatch(getPostsBySearch({ search, tags: tags.join(',') }));
-            navigate(`/posts?searchQuery=${search || 'none'}&tags=${tags.join(',')}`);
-        } else {
-            navigate('/');
-        }
-    };
-
-    const handleKeyPress = (e) => {
-        if (e.keyCode === 13) {
-            searchPost();
-        }
-    };
-
-    const handleAddChip = (tag) => setTags([...tags, tag]);
-
-    const handleDeleteChip = (chipToDelete) => setTags(tags.filter((tag) => tag !== chipToDelete));
-
-    const sForm = useRef();
+  const [search, setSearch] = useState('');
+  const [tags, setTags] = useState([]);
+  const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
 
 
-    return (
-        <Container style={{ marginTop: '2rem' }} maxWidth="xl">
+  useEffect(() => {
+    console.log("getting Post");
+    console.log("searchParams", searchParams.get("searchQuery"));
+    if (!searchParams.get("searchQuery")) {
+      console.log("loading post");
+      setTimeout(() => {
+        dispatch(getPosts(page)); //dispatch actions inside useEffect, in our case getPosts()
+      }, 200);
+    }
+  }, [currentId, page, dispatch]); //change the current id in the app, is going to dispatch to get post action, every change we get new post
 
-            <Grow in>
-                <ThemeProvider theme={theme}>
-                    <Container>
-                        <Grid container justify="space-between" alignItems="stretch" spacing={2} className={classes.gridContainer}>
-                            <Grid item xs={12} sm={6} md={9}>
-                                <Posts sForm={sForm} setCurrentId={setCurrentId} />
-                            </Grid>
-                            <Grid  item xs={12} sm={6} md={3}> {/*xs: extra small devices(fullWidth), sm:small devices, md:medium devices*/}
+  useEffect(() => {
+    console.log("search changes");
+    dispatch(getPostsBySearch({ search: searchParams.get("searchQuery"), tags: tags.join(',') }));
+  }, [searchLocation]);
 
-                                <AppBar className={classes.appBarSearch} position="static" color="inherit">
-                                    <TextField onKeyDown={handleKeyPress} name="search" variant="outlined" label="Search Products" fullWidth value={search} onChange={(e) => setSearch(e.target.value)} />
-                                    <ChipInput
-                                        style={{ margin: '10px 0' }}
-                                        value={tags}
-                                        onAdd={(chip) => handleAddChip(chip)}
-                                        onDelete={(chip) => handleDeleteChip(chip)}
-                                        label="Search Tags"
-                                        variant="outlined"
-                                    />
+  const searchPost = () => {
+    if (search.trim() || tags) {
+      //dispatch(getPostsBySearch({ search, tags: tags.join(',') }));
+      navigate(`/posts?searchQuery=${search || 'none'}&tags=${tags.join(',')}`);
+    } else {
+      navigate('/');
+    }
+  };
 
-                                    <Button onClick={searchPost} className={classes.searchButton} variant="contained" color="primary">Search</Button>
-                                </AppBar>
+  const handleKeyPress = (e) => {
+    if (e.keyCode === 13) {
+      searchPost();
+    }
+  };
 
-                                <Form sForm={sForm} currentId={currentId} setCurrentId={setCurrentId} />
-                            </Grid>
-                        </Grid>
-                        <Divider style={{ margin: "20px 0" }} />
+  const handleAddChip = (tag) => setTags([...tags, tag]);
 
-                        <Paper className={classes.pagination} elevation={6}>
-                            <Pagination page={page} />
-                        </Paper>
-                    </Container>
-                </ThemeProvider >
-            </Grow>
-        </Container>
-    );
+  const handleDeleteChip = (chipToDelete) => setTags(tags.filter((tag) => tag !== chipToDelete));
+
+  const sForm = useRef();
+
+
+  return (
+    <Container style={{ marginTop: '2rem' }} maxWidth="xl">
+
+      <Grow in>
+        <ThemeProvider theme={theme}>
+          <Container>
+            <Grid container justify="space-between" alignItems="stretch" spacing={2} className={classes.gridContainer}>
+              <Grid item xs={12} sm={6} md={9}>
+                <Posts sForm={sForm} setCurrentId={setCurrentId} />
+              </Grid>
+              <Grid item xs={12} sm={6} md={3}> {/*xs: extra small devices(fullWidth), sm:small devices, md:medium devices*/}
+
+                <AppBar className={classes.appBarSearch} position="static" color="inherit">
+                  <TextField onKeyDown={handleKeyPress} name="search" variant="outlined" label="Search Products" fullWidth value={search} onChange={(e) => setSearch(e.target.value)} />
+                  <ChipInput
+                    style={{ margin: '10px 0' }}
+                    value={tags}
+                    onAdd={(chip) => handleAddChip(chip)}
+                    onDelete={(chip) => handleDeleteChip(chip)}
+                    label="Search Tags"
+                    variant="outlined"
+                  />
+
+                  <Button onClick={searchPost} className={classes.searchButton} variant="contained" color="primary">Search</Button>
+                </AppBar>
+
+                <Form sForm={sForm} currentId={currentId} setCurrentId={setCurrentId} />
+              </Grid>
+            </Grid>
+            <Divider style={{ margin: "20px 0" }} />
+
+            <Paper className={classes.pagination} elevation={6}>
+              <Pagination page={page} />
+            </Paper>
+          </Container>
+        </ThemeProvider >
+      </Grow>
+    </Container>
+  );
 };
 
 export default ContainerSearch;
