@@ -22,8 +22,10 @@ const app = express();
 
 dotenv.config();
 
+console.log("CONNECTION_URL:", process.env.CONNECTION_URL);
+
 // connect to mongodb
-mongoose.connect(("mongodb+srv://mazzucagiorgio:8X0ZhvSXpl95JRve@cluster0.reag555.mongodb.net/"));
+mongoose.connect(process.env.CONNECTION_URL);
 
 // check mongodb connection
 mongoose.connection.on("open", () =>
