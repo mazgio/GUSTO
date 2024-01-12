@@ -19,7 +19,7 @@ import { Dashboard1 } from "./components/pages/Dashboard/AboutUser.jsx";
 import { Dashboard2 } from "./components/pages/Dashboard/ServicesUser.jsx";
 import PostDetails from './components/PostDetails/PostDetails.jsx';
 // import HomeSearch from './components/Home/HomeSearch.js';
-import CreatorOrTag from './components/CreatorOrTag/CreatorOrTag';
+// import CreatorOrTag from './components/CreatorOrTag/CreatorOrTag.jsx';
 import ContainerSearch from "./SearchPage.js";
 import Success from "./components/pages/Contact/success.js";
 import Team from "./components/pages/About/Team.js";
