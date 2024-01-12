@@ -25,9 +25,7 @@ export default makeStyles((theme) => ({
         backgroundColor: '#fae6b1'
     },
     gridContainer: {
-        marginRight: '20rem',
-        marginTop: '40px',
-        marginBottom: '40px',
+        
     },
 
 

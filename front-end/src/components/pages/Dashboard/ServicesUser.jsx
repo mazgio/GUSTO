@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../../../context/AuthProvider.js";
-import { HomeBusiness } from "./HomeBusiness.jsx";
+import { HomeBusiness } from "./HomeBusiness/HomeBusiness.jsx";
 import { HomeCustomer } from "./HomeCustomer.jsx";
 import { ServicesBusiness } from "./ServicesBusiness.jsx";
 import { ServicesCustomer } from "./ServicesCustomer.jsx";

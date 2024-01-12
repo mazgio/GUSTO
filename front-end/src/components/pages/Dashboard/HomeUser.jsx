@@ -2,13 +2,12 @@ import React, { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../../../context/AuthProvider.js";
 import Logout from "../../Logout.jsx";
 import styled from "styled-components";
-import { HomeBusiness } from "./HomeBusiness.jsx";
+import { HomeBusiness } from "./HomeBusiness/HomeBusiness.jsx";
 import { HomeCustomer } from "./HomeCustomer.jsx";
 
 const Name = styled.div`
   background: #fae6b1;
   padding: 10px 20px;
-  margin: 0px;
   margin-top: 39px;
   display: flex;
   justify-content: space-between;
