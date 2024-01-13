@@ -26,7 +26,6 @@ const Post = ({ post, setCurrentId, sForm }, ref) => {
 
   const handleLike = async () => {
     dispatch(likePost(post._id));
-
     if (hasLikedPost) {
       setLikes(post.likes.filter((id) => id !== userId));
     } else {
@@ -45,6 +44,10 @@ const Post = ({ post, setCurrentId, sForm }, ref) => {
     }
 
     return <><ThumbUpAltOutlined fontSize="small" />&nbsp;Like</>;
+  };
+
+  const handleDelete = async () => {
+    dispatch(deletePost(post._id));
   };
 
   const openPost = (e) => {
@@ -69,7 +72,7 @@ const Post = ({ post, setCurrentId, sForm }, ref) => {
         </div>
         {(currentUser.result?._id === post?.creator) && (
           <div className={classes.overlay2} name="edit">
-            <Button 
+            <Button
               onClick={(e) => {
                 sForm.current.scrollIntoView({ behavior: "smooth" });
                 e.stopPropagation();
@@ -95,10 +98,9 @@ const Post = ({ post, setCurrentId, sForm }, ref) => {
         <Button style={{ padding: '4px', color: '#31525B ' }} size="medium" color="primary" disabled={userId === null} onClick={handleLike}>
           <Likes />
         </Button>
-
         {(currentUser.result === post?.creator) && (
           currentUser.userType !== "customerUsers" && currentUser._id != null ?
-            (<Button className={classes.button} size="small" color="secondary" disabled={userId === null} onClick={() => dispatch(deletePost(post._id))}>
+            (<Button className={classes.button} size="small" color="secondary" disabled={userId === null} onClick={handleDelete}>
               <DeleteIcon fontSize="small" /> &nbsp;
             </Button>) : (<></>)
         )}
