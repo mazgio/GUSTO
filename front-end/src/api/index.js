@@ -1,6 +1,6 @@
 import axios from 'axios'; //use axios to make api calls
 
-const API = axios.create({ baseURL: 'https://gusto-app-b91abaca0d07.herokuapp.com/home' }); //axios instance
+const API = axios.create({ baseURL: 'https://gusto-app-b91abaca0d07.herokuapp.com/posts' }); //axios instance
 
 //we have to send a token to backend that middleware can verify that we are login, it happens before every request
 API.interceptors.request.use((req) => {
