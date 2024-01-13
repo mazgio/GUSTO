@@ -4,13 +4,11 @@ const API = axios.create({ baseURL: 'http://localhost:3001' }); //axios instance
 
 //we have to send a token to backend that middleware can verify that we are login, it happens before every request
 API.interceptors.request.use((req) => {
-    if (sessionStorage.getItem('login')) {
-        req.headers.Authorization = `Bearer ${JSON.parse(sessionStorage.getItem('login')).token}`;
+  if (sessionStorage.getItem('login')) {
+    req.headers.Authorization = `Bearer ${JSON.parse(sessionStorage.getItem('login')).token}`;
+  }
 
-
-    }
-
-    return req;
+  return req;
 });
 
 export const fetchPost = (id) => API.get(`/posts/${id}`); // function to return all the posts that we currently have
