@@ -10,7 +10,7 @@ import productsRouter from "./routes/products.js";
 
 import globalErrorHandler from "./middleware/globalErrorHandler.js";
 import loginRouter from "./routes/login.js";
-import registerCustomerRouter from "./routes/customer  Register.js";
+import registerCustomerRouter from "./routes/customerRegister.js";
 import registerBusinessRouter from "./routes/businessRegister.js";
 
 import customerRouter from "./routes/customerUsers.js";
