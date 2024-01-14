@@ -22,7 +22,7 @@ export const Dashboard = (props) => {
   useEffect(() => {
     const fetchUserData = async () => {
       const response = await fetch(
-        process.env.SERVER_URL +
+        process.env.REACT_APP_SERVER_URL +
           `/${currentUser.userType}/${currentUser._id}`
       );
       const parsedRes = await response.json();

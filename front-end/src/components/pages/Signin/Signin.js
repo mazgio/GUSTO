@@ -56,12 +56,10 @@ const Signin = (props) => {
         "Content-Type": "application/json",
       },
     };
+    console.log("Server URL:", process.env.REACT_APP_SERVER_URL);
 
     // make a POST request
-    const response = await fetch(
-      process.env.SERVER_URL + "/login",
-      settings
-    );
+    const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/login`, settings);
     console.log("RESPONSE", response);
     const parsedRes = await response.json();
     console.log(parsedRes);
