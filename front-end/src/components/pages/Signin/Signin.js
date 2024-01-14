@@ -57,9 +57,12 @@ const Signin = (props) => {
       },
     };
     console.log("Server URL:", process.env.REACT_APP_SERVER_URL);
+    console.log("Fetch Settings:", settings);
 
     // make a POST request
     const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/login`, settings);
+    console.log('Inside handleSubmit 1');
+
     console.log("RESPONSE", response);
     const parsedRes = await response.json();
     console.log(parsedRes);
