@@ -45,8 +45,8 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/success" element={<Success />} />
           <Route path="/team" element={<Team />} />
-          <Route path="/customer-signup" element={<CustomerSignup setCurrentUser={setCurrentUser} />} />
-          <Route path="/business-signup" element={<BusinessSignup setCurrentUser={setCurrentUser} />} />
+          <Route path="/signup/customer" element={<CustomerSignup setCurrentUser={setCurrentUser} />} />
+          <Route path="/signup/business" element={<BusinessSignup setCurrentUser={setCurrentUser} />} />
           <Route path="/profile" element={<ProtectedRoute auth={(currentUser._id != null)}>
             <Dashboard />
           </ProtectedRoute>} />
