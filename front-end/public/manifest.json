@@ -1,6 +1,6 @@
 {
   "name": "Gusto App",
-  "short_name": "GustoApp",
+  "short_name": "Gusto",
   "description": "A food discovery app to satisfy your cravings.",
   "start_url": "./index.html",
   "display": "standalone",
