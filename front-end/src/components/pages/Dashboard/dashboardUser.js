@@ -6,7 +6,7 @@ export const Dashboard = (props) => {
   useEffect(() => {
     const fetchUserData = async () => {
       const response = await fetch(
-        process.env.REACT_APP_SERVER_URL +
+        process.env.SERVER_URL +
           `/customerUsers/${props.currentUserId}`
       );
       const parsedRes = await response.json();

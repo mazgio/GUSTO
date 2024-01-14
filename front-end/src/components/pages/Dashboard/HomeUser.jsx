@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../../../context/AuthProvider.js";
-import Logout from "../../Logout.jsx";
 import styled from "styled-components";
 import { HomeBusiness } from "./HomeBusiness/HomeBusiness.jsx";
 import { HomeCustomer } from "./HomeCustomer.jsx";
@@ -23,7 +22,7 @@ export const Dashboard = (props) => {
   useEffect(() => {
     const fetchUserData = async () => {
       const response = await fetch(
-        process.env.REACT_APP_SERVER_URL +
+        process.env.SERVER_URL +
           `/${currentUser.userType}/${currentUser._id}`
       );
       const parsedRes = await response.json();

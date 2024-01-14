@@ -59,7 +59,7 @@ const Signin = (props) => {
 
     // make a POST request
     const response = await fetch(
-      process.env.REACT_APP_SERVER_URL + "/login",
+      process.env.SERVER_URL + "/login",
       settings
     );
     console.log("RESPONSE", response);
