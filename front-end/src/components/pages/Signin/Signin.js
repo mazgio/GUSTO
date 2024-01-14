@@ -56,34 +56,44 @@ const Signin = (props) => {
         "Content-Type": "application/json",
       },
     };
+
     console.log("Server URL:", process.env.REACT_APP_SERVER_URL);
     console.log("Fetch Settings:", settings);
 
-    // make a POST request
-    const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/login`, settings);
-    console.log('Inside handleSubmit 1');
-
-    console.log("RESPONSE", response);
-    const parsedRes = await response.json();
-    console.log(parsedRes);
     try {
-      if (response.ok) {
-        const newUser = {
-          _id: parsedRes.id,
-          username: parsedRes.username,
-          userType: parsedRes.userType,
-          companyName: parsedRes.companyName,
-          token: parsedRes.token,
-        };
-        props.setCurrentUser(newUser);
+      // make a POST request
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/login`, settings);
+      console.log('Inside handleSubmit 1');
 
-        setFormErrors(validate(formValues));
-        setIsSubmit(true);
-      } else {
-        throw new Error(parsedRes.message);
+      console.log("RESPONSE", response);
+
+      if (!response.ok) {
+        throw new Error(`Server returned ${response.status} - ${response.statusText}`);
       }
+
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        throw new Error('Expected JSON response from server');
+      }
+
+      const parsedRes = await response.json();
+      console.log(parsedRes);
+
+      const newUser = {
+        _id: parsedRes.id,
+        username: parsedRes.username,
+        userType: parsedRes.userType,
+        companyName: parsedRes.companyName,
+        token: parsedRes.token,
+      };
+
+      props.setCurrentUser(newUser);
+
+      setFormErrors(validate(formValues));
+      setIsSubmit(true);
     } catch (err) {
-      alert(err.message);
+      console.error(err.message);
+      alert('Failed to sign in. Please check your credentials.');
       setFormValues(initialValues);
     }
   };
