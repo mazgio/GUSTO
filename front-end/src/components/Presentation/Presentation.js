@@ -5,10 +5,9 @@ import logo from "../images/team-logo.png";
 import { Link } from 'react-router-dom';
 
 const Logo = styled.img`
-  width: 45%;
-  margin-top:45px
+  width: 65%;
   text-align:center;
-  padding:55px;
+  padding:62px;
 `;
 
 
@@ -18,7 +17,6 @@ const Presentation = () => {
     <>
       <Link to="/team" className='teamAbout' >  <Logo src={logo} />
       </Link>
-        <h2 className='containerAbout'>About us</h2>
       <div className='displayRel'>
         <p className='textPresentation'>Gusto is a new start-up, who focus on capitalizing upon a perceived market demand by developing a viable product, service, or platform. Gusto is a startup born from the minds of a group of 4 young web developers,headquartered in Berlin but we are expanding throughout Germany.
           The basic idea is to bring food culture to all people who love or do not love food and to introduce different culinary cultures.</p>
