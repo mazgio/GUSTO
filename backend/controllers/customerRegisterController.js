@@ -53,8 +53,6 @@ export const registerCustomerPost = async (req, res, next) => {
     username: username,
     emailAddress: emailAddress,
     password: password,
-    favoriteBusiness: [],
-    favoriteProducts: [],
     isAdmin: false
   });
 

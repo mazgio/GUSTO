@@ -3,16 +3,11 @@ import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import morgan from "morgan";
-
 import postRoutes from './routes/posts.js';
-
-import productsRouter from "./routes/products.js";
-
 import globalErrorHandler from "./middleware/globalErrorHandler.js";
 import loginRouter from "./routes/login.js";
 import registerCustomerRouter from "./routes/customerRegister.js";
 import registerBusinessRouter from "./routes/businessRegister.js";
-
 import customerRouter from "./routes/customerUsers.js";
 import businessRouter from "./routes/businessUsers.js";
 
@@ -22,10 +17,15 @@ const app = express();
 
 dotenv.config();
 
-console.log("CONNECTION_URL:", process.env.CONNECTION_URL);
+
+mongoose.set('strictQuery', false);
 
 // connect to mongodb
-mongoose.connect(process.env.CONNECTION_URL);
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  ssl: true, // Include this line for SSL
+});
 
 // check mongodb connection
 mongoose.connection.on("open", () =>
@@ -43,6 +43,7 @@ app.use(express.json());
 app.use(morgan("tiny"));
 
 // app.use("/home", enterPage);
+app.use('/posts', postRoutes);
 
 // register customer user
 app.use("/registerCustomer", registerCustomerRouter);
@@ -53,19 +54,19 @@ app.use("/registerBusiness", registerBusinessRouter);
 // login post
 app.use("/login", loginRouter);
 
-//products router
-app.use("/products", productsRouter);
-
 // customer Users
 app.use("/customerUsers", customerRouter);
 
 // business Users
 app.use("/businessUsers", businessRouter);
 
-app.use('/posts', postRoutes);
 
 app.use(globalErrorHandler);
 
-app.listen(3001, () => {
-  console.log(`Server has started on port  3001!`);
+const port = process.env.PORT || 3001;
+app.listen(port, () => {
+  console.log(`Server has started on port ${port}!`);
 });
+
+
+

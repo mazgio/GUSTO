@@ -12,8 +12,6 @@ const customerUserSchema = new Schema({
   },
   emailAddress: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  favoriteBusiness: [{ businessName: String }],
-  favoriteProducts: [{ productName: String }],
   isAdmin: { type: Boolean, required: true },
 }, { timestamps: true });
 

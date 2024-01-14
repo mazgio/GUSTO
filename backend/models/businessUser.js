@@ -21,11 +21,6 @@ const businessUserSchema = new Schema(
     zipCode: { type: Number, required: true },
     city: { type: String, required: true },
     businessTelephone: Number,
-    // typeOfBusiness: { type: String, required: true },
-    // companyHistory: String,
-    products: [
-      { type: mongoose.Types.ObjectId, required: true, ref: "Product" },
-    ],
   },
   { timestamps: true }
 );

@@ -50,9 +50,3 @@ export const loginPost = async (req, res, next) => {
     return next(createError(500, "User not found"));
   }
 };
-
-// TODO Encryption missing.
-
-// TOKEN????
-
-// TODO Response for user-mistake.
