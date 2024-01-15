@@ -1,18 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Posts from "../../../Posts/Posts.js";
 import { getPosts } from "../../../../actions/posts.js";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import "../../Home/Home.css";
-import makeStyles from "../styles.js";
+// import makeStyles from "../styles.js";
 import Contact from "../../Contact/Contact.js";
-import {
-  Paper,
-  Divider,
-  Typography,
-  AppBar,
-  Container,
-} from "@material-ui/core";
+import { Container } from "@material-ui/core";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import ContainerSearch from "../../../../SearchPage.js";
 import products from "../../../images/products.jpg";
@@ -41,13 +35,13 @@ function useQuery() {
 }
 
 export const HomeBusiness = () => {
-  const classes = makeStyles();
+  // const classes = makeStyles();
 
   const dispatch = useDispatch();
   const query = useQuery();
   const page = query.get("page") || 1;
-  const navigate = useNavigate();
-  const [currentId, setCurrentId] = useState(0);
+  // const navigate = useNavigate();
+  // const [currentId, setCurrentId] = useState(0);
 
   useEffect(() => {
     dispatch(getPosts(page));
