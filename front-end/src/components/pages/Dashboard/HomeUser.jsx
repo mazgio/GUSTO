@@ -17,7 +17,7 @@ const Name = styled.div`
 
 export const Dashboard = (props) => {
   const [firstName, setFirstName] = useState("");
-  const { currentUser, setCurrentUser } = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext);
 
   useEffect(() => {
     const fetchUserData = async () => {
