@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
-import Posts from "../../../Posts/Posts.js";
+import React, { useEffect } from "react";
 import { getPosts } from "../../../../actions/posts.js";
 import { useDispatch } from "react-redux";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import "../../Home/Home.css";
 // import makeStyles from "../styles.js";
 import Contact from "../../Contact/Contact.js";
