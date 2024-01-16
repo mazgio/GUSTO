@@ -79,10 +79,8 @@ const BusinessSignup = () => {
     };
 
     // POST REQUEST
-    const response = await fetch(
-      process.env.REACT_APP_SERVER_URL + "/business",
-      settings
-    );
+    const response = await fetch("/business", settings);
+
     const parsedRes = await response.json();
 
     try {
