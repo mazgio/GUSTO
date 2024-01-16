@@ -148,7 +148,7 @@ const Signin = (props) => {
           <button>Sign in</button>
           <p>
             Not registered?<span> </span>
-            <a className="sign-button" href="/signup">
+            <a className="sign-button" href="./signup">
               Sign Up
             </a>
           </p>
