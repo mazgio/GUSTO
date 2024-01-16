@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import "./Signin.css";
 import { Icon } from "react-icons-kit";
@@ -148,9 +149,9 @@ const Signin = (props) => {
           <button>Sign in</button>
           <p>
             Not registered?<span> </span>
-            <a className="sign-button" href="./signup">
+            <Link className="sign-button" to="/signup">
               Sign Up
-            </a>
+            </Link>
           </p>
         </div>
       </form>
