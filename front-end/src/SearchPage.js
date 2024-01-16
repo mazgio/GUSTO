@@ -39,7 +39,7 @@ const ContainerSearch = () => {
   const [search, setSearch] = useState('');
   const [tags, setTags] = useState([]);
   const navigate = useNavigate();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
 
 
   useEffect(() => {
