@@ -2,6 +2,7 @@ import createError from "http-errors";
 import CustomerUser from "../models/customerUser.js";
 
 export const registerCustomerPost = async (req, res, next) => {
+  console.log('Executing registerCustomerPost');
   const { firstName, lastName, username, emailAddress, password } = req.body;
 
   let foundUsername;

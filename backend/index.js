@@ -11,62 +11,44 @@ import registerBusinessRouter from "./routes/businessRegister.js";
 import customerRouter from "./routes/customerUsers.js";
 import businessRouter from "./routes/businessUsers.js";
 
-
-
 const app = express();
-
 dotenv.config();
 
+mongoose.set('strictQuery', true); // or true based on your preference
 
-mongoose.set('strictQuery', false);
-
-// connect to mongodb
+// MongoDB connection
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  ssl: true, // Include this line for SSL
 });
 
-// check mongodb connection
 mongoose.connection.on("open", () =>
   console.log("Database connection established!")
 );
-mongoose.connection.on("error", () => console.error);
+mongoose.connection.on("error", (err) =>
+  console.error("MongoDB connection error:", err)
+);
 
-// allow cors requests
+// Middleware
 app.use(cors());
-
-// parse JSON data received
 app.use(express.json());
-
-// Use morgan to make a small log every time a request is received
 app.use(morgan("tiny"));
 
-// app.use("/home", enterPage);
+app.get('/', (req, res) => {
+  res.send('Hello, this is the root!');
+});
+// Routes
 app.use('/posts', postRoutes);
-
-// register customer user
-app.use("/registerCustomer", registerCustomerRouter);
-
-// register business user
-app.use("/registerBusiness", registerBusinessRouter);
-
-// login post
+app.use("/customer", registerCustomerRouter);
+app.use("/business", registerBusinessRouter);
 app.use("/login", loginRouter);
-
-// customer Users
 app.use("/customerUsers", customerRouter);
-
-// business Users
 app.use("/businessUsers", businessRouter);
 
-
+// Global error handler
 app.use(globalErrorHandler);
 
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log(`Server has started on port ${port}!`);
 });
-
-
-
