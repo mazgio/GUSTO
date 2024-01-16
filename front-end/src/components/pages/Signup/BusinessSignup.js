@@ -80,7 +80,7 @@ const BusinessSignup = () => {
 
     // POST REQUEST
     const response = await fetch(
-      process.env.REACT_APP_SERVER_URL + "/signup/business",
+      process.env.REACT_APP_SERVER_URL + "/business",
       settings
     );
     const parsedRes = await response.json();

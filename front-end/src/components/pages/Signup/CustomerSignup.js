@@ -67,7 +67,7 @@ const CustomerSignup = (props) => {
 
     // POST REQUEST
     const response = await fetch(
-      process.env.REACT_APP_SERVER_URL + "/signup/customer",
+      process.env.REACT_APP_SERVER_URL + "/customer",
       settings
     );
     const parsedRes = await response.json();
