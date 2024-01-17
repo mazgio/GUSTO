@@ -67,14 +67,23 @@ const CustomerSignup = (props) => {
 
     try {
       const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/customer`, settings);
-      // Handle success
-      console.log('Response:', response.data);
+
+      // Check if the request was successful (status code in the range 200-299)
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      // Parse the response body as JSON
+      const responseData = await response.json();
+
+      // Log the response data
+      console.log('Response:', responseData);
+
       // Redirect to /sign-in after successful form submission/response
       navigate("/signin");
     } catch (error) {
-      // Handle error
-      console.error('Error:', error.message);
-      alert(error.message);
+      // Handle any errors that occurred during the fetch
+      console.error('Fetch error:', error);
     }
   };
 
