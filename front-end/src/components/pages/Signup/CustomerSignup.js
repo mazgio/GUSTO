@@ -66,8 +66,10 @@ const CustomerSignup = (props) => {
     };
 
     // POST REQUEST
-    const response = await fetch("https://gusto-app.herokuapp.com/customer", settings);
-
+    const response = await fetch(
+      process.env.REACT_APP_SERVER_URL + "/customer",
+      settings
+    );
     const parsedRes = await response.json();
 
     try {
@@ -82,6 +84,12 @@ const CustomerSignup = (props) => {
       alert(err.message);
     }
   };
+
+  useEffect(() => {
+    if (Object.keys(formErrors).length === 0 && isSubmit) {
+      // handle the submit logic here after the state has been updated
+    }
+  }, [formErrors, isSubmit]);
 
   const validate = (values) => {
     const errors = {};
