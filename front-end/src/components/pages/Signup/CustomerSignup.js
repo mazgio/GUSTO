@@ -57,10 +57,16 @@ const CustomerSignup = (props) => {
       password: formValues.password,
     };
 
-    try {
-      const API = axios.create({ baseURL: 'https://gusto-app-b91abaca0d07.herokuapp.com/' });
+    const settings = {
+      method: "POST",
+      body: JSON.stringify(newUser),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
 
-      const response = await API.post('/customer', newUser);
+    try {
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/customer`, settings);
       // Handle success
       console.log('Response:', response.data);
       // Redirect to /sign-in after successful form submission/response
