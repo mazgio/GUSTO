@@ -4,6 +4,7 @@ import { Icon } from 'react-icons-kit';
 import { eyeDisabled } from 'react-icons-kit/ionicons/eyeDisabled';
 import { eye } from 'react-icons-kit/ionicons/eye';
 import "./Signup.css";
+import axios from 'axios';
 
 const CustomerSignup = (props) => {
   const initialValues = {
@@ -47,7 +48,7 @@ const CustomerSignup = (props) => {
     event.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true);
-    // create a new user
+
     const newUser = {
       firstName: formValues.firstname,
       lastName: formValues.lastname,
@@ -56,31 +57,18 @@ const CustomerSignup = (props) => {
       password: formValues.password,
     };
 
-    // settings
-    const settings = {
-      method: "POST",
-      body: JSON.stringify(newUser),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-
-    // POST REQUEST
-    const response = await fetch(
-      process.env.REACT_APP_SERVER_URL + "/customer",
-      settings
-    );
-    const parsedRes = await response.json();
-
     try {
-      if (response.ok) {
-        // Redirect to /sign-in after successful form submission/response
-        navigate("/signin");
-      } else {
-        throw new Error(parsedRes.message);
-      }
-    } catch (err) {
-      alert(err.message);
+      const API = axios.create({ baseURL: 'https://gusto-app-b91abaca0d07.herokuapp.com/' });
+
+      const response = await API.post('/customer', newUser);
+      // Handle success
+      console.log('Response:', response.data);
+      // Redirect to /sign-in after successful form submission/response
+      navigate("/signin");
+    } catch (error) {
+      // Handle error
+      console.error('Error:', error.message);
+      alert(error.message);
     }
   };
 
