@@ -40,9 +40,13 @@ export const registerCustomerPost = async (req, res, next) => {
 
   try {
     await newUser.save();
+    res.status(201).json({ id: newUser._id });
   } catch (error) {
+    if (error.name === 'ValidationError') {
+      // Handle validation errors (e.g., required fields missing)
+      return next(createError(422, error.message));
+    }
+    // Handle other unexpected errors
     return next(createError(500, `New user could not be created. Please try again!`));
-  }
-
-  res.status(201).json({ id: newUser._id });
+  };
 };
