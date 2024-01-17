@@ -79,7 +79,7 @@ const BusinessSignup = () => {
     };
 
     // POST REQUEST
-    const response = await fetch("/business", settings);
+    const response = await fetch("https://gust0.netlify.app/business", settings);
 
     const parsedRes = await response.json();
 

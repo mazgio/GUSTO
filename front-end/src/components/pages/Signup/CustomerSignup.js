@@ -66,7 +66,7 @@ const CustomerSignup = (props) => {
     };
 
     // POST REQUEST
-    const response = await fetch("/customer", settings);
+    const response = await fetch("https://gust0.netlify.app/customer", settings);
 
     const parsedRes = await response.json();
 
