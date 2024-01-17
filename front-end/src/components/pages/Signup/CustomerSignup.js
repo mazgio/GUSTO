@@ -74,7 +74,7 @@ const CustomerSignup = (props) => {
 
     try {
       if (response.ok) {
-        // Redirect to /signin after successful form submission
+        // Redirect to /sign-in after successful form submission/response
         navigate("/signin");
       } else {
         throw new Error(parsedRes.message);
@@ -118,11 +118,6 @@ const CustomerSignup = (props) => {
 
   return (
     <div className="signup-container">
-      {Object.keys(formErrors).length === 0 && isSubmit ? (
-        navigate("/signin")
-      ) : (
-        <></>
-      )}
       <form onSubmit={handleSubmit}>
         <h1>Sign Up</h1>
         <hr />
