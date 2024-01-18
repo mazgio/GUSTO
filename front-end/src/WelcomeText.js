@@ -3,7 +3,7 @@ import React from "react";
 import { useWelcomeContext } from "./WelcomeContext";
 
 const WelcomeText = () => {
-  const { showWelcomeText, handleCloseWelcomeText } = useWelcomeContext();
+  const { showWelcomeText } = useWelcomeContext();
 
   if (!showWelcomeText) {
     return null;
