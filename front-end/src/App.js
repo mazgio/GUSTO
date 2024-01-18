@@ -28,8 +28,10 @@ function App() {
 
   const { currentUser, setCurrentUser } = useContext(AuthContext);
   useEffect(() => {
+    console.log("Effect triggered", currentUser);
     // Redirect to /home if not logged in
     if (!currentUser) {
+      console.log("Navigating to /home");
       navigate('/home', { replace: true });
     }
   }, [currentUser, navigate]);
@@ -38,7 +40,7 @@ function App() {
       <Navbar />
       <div className="container">
         <Routes>
-          {/* <Route exact path="/" element={<Navigate replace to="/home" />} /> */}
+          <Route path="/" element={currentUser ? <Navigate to="/home" replace /> : <Home />} />
           <Route path="/home" element={currentUser._id ? <Dashboard /> : <Home />} />
           <Route path="/posts" element={<ContainerSearch />} />
           <Route path="/posts/:id" element={<PostDetails />} />
