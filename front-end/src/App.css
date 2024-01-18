@@ -36,15 +36,25 @@ html {
   flex-direction: column;
 }
 .welcome-text {
-  background-color: #f8f8f8;
+  background-color: #fff; /* Updated background color */
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
   font-size: 18px;
   color: #333;
+  margin-bottom: 20px;
+  max-width: 600px; /* Added max-width for better readability on larger screens */
+  margin-left: auto; /* Centering on larger screens */
+  margin-right: auto; /* Centering on larger screens */
 }
 
+/* Center the welcome text on mobile devices */
+@media (max-width: 767px) {
+  .welcome-text {
+    max-width: 100%;
+  }
+}
 /*Home page style*/
 
 input[type="file"] {
