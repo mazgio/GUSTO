@@ -28,16 +28,15 @@ function App() {
 
   const { currentUser, setCurrentUser } = useContext(AuthContext);
   useEffect(() => {
-    if (window.location.pathname === '/') {
+    // Redirect to /home if not logged in
+    if (!currentUser) {
       navigate('/home', { replace: true });
     }
-  }, [navigate]);
-
+  }, [currentUser, navigate]);
   return (
     <div className="home">
       <Navbar />
       <div className="container">
-        <Link to="/home"></Link>
         <Routes>
           {/* <Route exact path="/" element={<Navigate replace to="/home" />} /> */}
           <Route path="/home" element={currentUser._id ? <Dashboard /> : <Home />} />
