@@ -72,22 +72,23 @@ const BusinessSignup = () => {
     // settings
     const settings = {
       method: "POST",
-      body: JSON.stringify(newBusinessUser),
+      body: JSON.stringify(newUser),
       headers: {
         "Content-Type": "application/json",
       },
     };
 
     // POST REQUEST
-    const response = await fetch("https://gusto-app.herokuapp.com/business", settings);
-
+    const response = await fetch(
+      process.env.REACT_APP_SERVER_URL + "/business",
+      settings
+    );
     const parsedRes = await response.json();
 
     try {
       if (response.ok) {
-        //props.setCurrentUserId(parsedRes.id);
-        setFormErrors(validate(formValues));
-        setIsSubmit(true);
+        // Redirect to /sign-in after successful form submission/response
+        navigate("/signin");
       } else {
         throw new Error(parsedRes.message);
       }
@@ -95,6 +96,7 @@ const BusinessSignup = () => {
       alert(err.message);
     }
   };
+
 
   const validate = (values) => {
     const errors = {};
