@@ -31,7 +31,7 @@ function App() {
     <div className="home">
       <Navbar />
       <div>
-        <Routes>
+        <div className="container"><Routes>
           <Route exact path="/" element={<Navigate replace to="/home" />} />
           <Route path="/home" element={currentUser._id ? <Dashboard /> : <Home />} />
           <Route path="/posts" element={<ContainerSearch />} />
@@ -51,7 +51,8 @@ function App() {
             <Dashboard />
           </ProtectedRoute>} />
           <Route path="/logout" element={<Logout />} />
-        </Routes>
+        </Routes></div>
+
       </div>
       <Footer />
     </div >
