@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate, Link } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar.js";
 import Home from "./components/pages/Home/Home.js";
 import About from "./components/pages/About/About.js";
@@ -34,6 +34,7 @@ function App() {
     <div className="home">
       <Navbar />
       <div className="container">
+        <Link to="/home"></Link>
         <Routes>
           {/* <Route exact path="/" element={<Navigate replace to="/home" />} /> */}
           <Route path="/home" element={currentUser._id ? <Dashboard /> : <Home />} />
