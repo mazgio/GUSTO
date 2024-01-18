@@ -1,21 +1,16 @@
+// controllers/customerRegister.js
 import express from "express";
-import { registerCustomerPost } from "../controllers/customerRegisterController.js";
 import requiredValues from "../validators/requiredValues.js";
 import checkValidation from "../validators/checkValidation.js";
-
-
-// Import necessary modules and dependencies
+import { registerCustomerPost } from "../controllers/customerRegisterController.js";
 
 const router = express.Router();
 
-// Define requiredValues middleware
-const validateFields = requiredValues(["username", "password", "emailAddress"]);
-
-// Define route handling
-router.post("/", validateFields, (req, res) => {
-  console.log("POST request to /customer route");
-  res.send("Customer registration successful!");
+router.get("/", (req, res) => {
+  console.log("GET request to /customer route");
+  res.send("I am the register customer route");
 });
 
+router.post("/", requiredValues(["username", "password", "emailAddress"]), checkValidation, registerCustomerPost);
 
 export default router;
