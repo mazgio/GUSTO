@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Routes, Route, Navigate, useNavigate, Link } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar.js";
 import Home from "./components/pages/Home/Home.js";
@@ -27,9 +27,12 @@ function App() {
   const navigate = useNavigate();
 
   const { currentUser, setCurrentUser } = useContext(AuthContext);
-  if (window.location.pathname === '/') {
-    navigate('/home', { replace: true });
-  }
+  useEffect(() => {
+    if (window.location.pathname === '/') {
+      navigate('/home', { replace: true });
+    }
+  }, [navigate]);
+
   return (
     <div className="home">
       <Navbar />
