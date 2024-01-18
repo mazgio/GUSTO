@@ -30,12 +30,21 @@ html {
 }
 .container {
   width: 100%;
-  background-image: url("./components/images/logo-bold.png");
   position: relative;
   flex: 1;
   display: flex;
   flex-direction: column;
 }
+.welcome-text {
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 18px;
+  color: #333;
+}
+
 /*Home page style*/
 
 input[type="file"] {

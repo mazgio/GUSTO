@@ -31,6 +31,11 @@ function App() {
     <div className="home">
       <Navbar />
       <div className="container">
+        <div className="welcome-text">
+          {/* Text Section with Styling */}
+          <p>Welcome to our food app! Embark on a culinary journey where you can discover delightful recipes and explore captivating photos of food from diverse cultures.
+          </p>
+        </div>
         <Routes>
           <Route exact path="/" element={<Navigate replace to="/home" />} />
           <Route path="/home" element={currentUser._id ? <Dashboard /> : <Home />} />
