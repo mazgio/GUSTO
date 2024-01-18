@@ -26,8 +26,15 @@ const TextPresentation = styled.p`
 const MoreAboutLink = styled(Link)`
   color: #f3a12b;
   font-weight: bold;
-  text-decoration: underline;
   cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  transform-origin: center; /* Specify the transform origin */
+
+  &:hover {
+    color: #ffcc00; 
+    transform: perspective(100px) rotateX(5deg);
+  }
 `;
 
 
@@ -35,7 +42,7 @@ const Presentation = ({ children }) => {
   return (
     <Container>
       <Logo src={logo} />
-      <TextPresentation className='textPresentation'>"Gusto is a new start-up, focused on capitalizing upon a perceived market demand by developing a viable product, service, or platform. Gusto is a startup born from the mind of <MoreAboutLink to='/team' style={{ color: '#f3a12b' }}>Giorgio Mazzuca</MoreAboutLink>, a young web developer headquartered in Berlin, but expanding throughout Germany. The basic idea is to bring food culture to all people who love or do not love food and to introduce different culinary cultures."
+      <TextPresentation className='textPresentation'>"Gusto is a new start-up, focused on capitalizing upon a perceived market demand by developing a viable product, service, or platform. Gusto is a startup born from the mind of <MoreAboutLink to='/team'>Giorgio Mazzuca</MoreAboutLink>, a young web developer headquartered in Berlin, but expanding throughout Germany. The basic idea is to bring food culture to all people who love or do not love food and to introduce different culinary cultures."
       </TextPresentation>
       {children}
     </Container>
