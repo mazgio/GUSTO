@@ -22,25 +22,24 @@ height:110vh;
 `;
 
 const Button = styled.button`
-position: relative;
-bottom:30px;
-width:80%;
-min-width: 100px;
-padding:8px 12px;
-border-radius: 4px;
-border: none;
-background-color: #ffa101;
-color:  #31525b;
-font-size: 18px;
-cursor: pointer;
-@media screen and (max-width: 444px){
-  position: relative;
-  bottom:2rem;
-};
-@media screen and (max-width: 414px){
-  position: relative;
-};
+  width: 80%;
+  min-width: 100px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: none;
+  background-color: #ffa101;
+  color: #31525b;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 30px; /* Adjusted margin-top */
+  @media screen and (max-width: 444px) {
+    margin-top: 2rem; /* Adjusted margin-top for smaller screens */
+  };
+  @media screen and (max-width: 414px) {
+    margin-top: 0; /* Adjusted margin-top for even smaller screens */
+  };
 `;
+
 
 const About = () => {
   const [showModal, setShowModal] = useState(false);
@@ -55,7 +54,6 @@ const About = () => {
         <Presentation />
         <Button onClick={openModal}>More about us</Button>
         <Modal showModal={showModal} setShowModal={setShowModal} />
-        <GlobalStyle />
       </Container>
     </>
   );
