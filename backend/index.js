@@ -6,11 +6,10 @@ import morgan from "morgan";
 import postRoutes from './routes/posts.js';
 import globalErrorHandler from "./middleware/globalErrorHandler.js";
 import loginRouter from "./routes/login.js";
-import customerRegisterRouter from "./routes/customerRegister.js";
-import registerBusinessRouter from "./routes/businessRegister.js";
-import customerRouter from "./routes/customerUsers.js";
-import businessRouter from "./routes/businessUsers.js";
-
+import customerRouter from "./routes/customerRegister.js";
+import businessRouter from "./routes/businessRegister.js";
+import customerUsersRouter from "./routes/customerUsers.js";
+import businessUsersRouter from "./routes/businessUsers.js";
 const app = express();
 dotenv.config();
 const port = process.env.PORT || 3001;
@@ -44,15 +43,12 @@ app.get('/', (req, res) => {
   res.send('Hello, this is the root!');
 });
 // Routes
-
-app.use('/customer', customerRegisterRouter);
+app.use('/customer', customerRouter);
 app.use('/posts', postRoutes);
-console.log("Before using customer router");
-//app.use("/customer", registerCustomerRouter);
-app.use("/business", registerBusinessRouter);
+app.use("/business", businessRouter);
 app.use("/login", loginRouter);
-app.use("/customerUsers", customerRouter);
-app.use("/businessUsers", businessRouter);
+app.use("/customerUsers", customerUsersRouter);
+app.use("/businessUsers", businessUsersRouter);
 
 // Global error handler
 app.use(globalErrorHandler);

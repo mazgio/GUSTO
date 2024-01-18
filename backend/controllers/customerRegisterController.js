@@ -4,12 +4,7 @@ import CustomerUser from "../models/customerUser.js";
 
 export const registerCustomerPost = async (req, res, next) => {
   console.log('Executing registerCustomerPost');
-
   const { firstName, lastName, username, emailAddress, password } = req.body;
-
-  if (!username || !emailAddress || !password) {
-    return next(createError(400, "Username, emailAddress, and password are required."));
-  }
 
   let foundUsername;
   let foundEmail;
@@ -40,13 +35,9 @@ export const registerCustomerPost = async (req, res, next) => {
 
   try {
     await newUser.save();
-    res.status(201).json({ id: newUser._id });
-  } catch (error) {
-    if (error.name === 'ValidationError') {
-      // Handle validation errors (e.g., required fields missing)
-      return next(createError(422, error.message));
-    }
-    // Handle other unexpected errors
+  } catch {
     return next(createError(500, `New user could not be created. Please try again!`));
-  };
+  }
+
+  res.status(201).json({ id: newUser._id });
 };

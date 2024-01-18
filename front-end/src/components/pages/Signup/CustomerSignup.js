@@ -4,7 +4,6 @@ import { Icon } from 'react-icons-kit';
 import { eyeDisabled } from 'react-icons-kit/ionicons/eyeDisabled';
 import { eye } from 'react-icons-kit/ionicons/eye';
 import "./Signup.css";
-import axios from 'axios';
 
 const CustomerSignup = (props) => {
   const initialValues = {
@@ -48,7 +47,7 @@ const CustomerSignup = (props) => {
     event.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true);
-
+    // create a new user
     const newUser = {
       firstName: formValues.firstname,
       lastName: formValues.lastname,
@@ -57,6 +56,7 @@ const CustomerSignup = (props) => {
       password: formValues.password,
     };
 
+    // settings
     const settings = {
       method: "POST",
       body: JSON.stringify(newUser),
@@ -65,25 +65,22 @@ const CustomerSignup = (props) => {
       },
     };
 
+    // POST REQUEST
+    const response = await fetch(
+      process.env.REACT_APP_SERVER_URL + "/customer",
+      settings
+    );
+    const parsedRes = await response.json();
+
     try {
-      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/customer`, settings);
-
-      // Check if the request was successful (status code in the range 200-299)
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+      if (response.ok) {
+        // Redirect to /sign-in after successful form submission/response
+        navigate("/signin");
+      } else {
+        throw new Error(parsedRes.message);
       }
-
-      // Parse the response body as JSON
-      const responseData = await response.json();
-
-      // Log the response data
-      console.log('Response:', responseData);
-
-      // Redirect to /sign-in after successful form submission/response
-      navigate("/signin");
-    } catch (error) {
-      // Handle any errors that occurred during the fetch
-      console.error('Fetch error:', error);
+    } catch (err) {
+      alert(err.message);
     }
   };
 

@@ -1,17 +1,15 @@
-
 // requiredValues.js
-
 const requiredValues = (fields) => (req, res, next) => {
-  console.log("requiredValues middleware executed");
+  console.log("Inside requiredValues middleware");
 
-  const missingFields = fields.filter(field => !(req.body[field] || req.query[field]));
+  const missingFields = fields.filter((field) => !(field in req.body));
 
   if (missingFields.length > 0) {
-    return res.status(400).json({
-      error: `Missing required fields: ${missingFields.join(', ')}`
-    });
+    console.log("Missing required fields:", missingFields);
+    return res.status(400).json({ error: "Missing required fields" });
   }
 
+  // If all required fields are present, move to the next middleware
   next();
 };
 
