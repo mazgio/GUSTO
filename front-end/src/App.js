@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar.js";
 import Home from "./components/pages/Home/Home.js";
 import About from "./components/pages/About/About.js";
@@ -24,9 +24,12 @@ import Team from "./components/pages/About/Team.js";
 
 
 function App() {
+  const navigate = useNavigate();
 
   const { currentUser, setCurrentUser } = useContext(AuthContext);
-
+  if (window.location.pathname === '/') {
+    navigate('/home', { replace: true });
+  }
   return (
     <div className="home">
       <Navbar />
