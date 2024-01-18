@@ -25,16 +25,18 @@ const Navbar = ({ onNavbarClick }) => {
   }
 
   const menuList = MenuList.map(({ url, title, viewauth, viewAlways }, index) => {
-    // return (
+    const shouldRender =
+      viewAlways ||
+      (viewauth && currentUser && currentUser._id != null) ||
+      (!viewauth && (!currentUser || currentUser._id === null));
 
-    //     <li key={index} onClick={handleClick}>
-    //         <NavLink to={url} className="active">{title}</NavLink>
-    //     </li>
-    // );
-    return ((viewAlways || (viewauth && currentUser._id != null) || (!viewauth && currentUser._id === null)) && (<li key={index} onClick={handleClick}>
-      <NavLink onClick={onNavbarClick} to={url} className="active">{title}</NavLink>
-    </li>));
-
+    return shouldRender && (
+      <li key={index} onClick={handleClick}>
+        <NavLink onClick={onNavbarClick} to={url} className="active">
+          {title}
+        </NavLink>
+      </li>
+    );
   });
 
   return (
