@@ -21,24 +21,38 @@ import PostDetails from './components/PostDetails/PostDetails.jsx';
 import ContainerSearch from "./SearchPage.js";
 import Success from "./components/pages/Contact/success.js";
 import Team from "./components/pages/About/Team.js";
+import { useWelcomeContext } from "./WelcomeContext";
+import WelcomeText from "./WelcomeText"; // Import the WelcomeText component
 
 
 function App() {
 
   const { currentUser, setCurrentUser } = useContext(AuthContext);
-
+  const { showWelcomeText, handleCloseWelcomeText } = useWelcomeContext();
+  // Function to close the welcome text
+  const handleNavbarClick = () => {
+    if (showWelcomeText) {
+      handleCloseWelcomeText();
+    }
+  };
   return (
     <div className="home">
-      <Navbar />
+      <Navbar onNavbarClick={handleNavbarClick} />
       <div className="container">
-        <div className="welcome-text">
-          {/* Text Section with Styling */}
-          <p>Welcome to our food app! Embark on a culinary journey where you can discover delightful recipes and explore captivating photos of food from diverse cultures.
-          </p>
-        </div>
+        {/* Include the WelcomeText component only if showWelcomeText is true */}
+        {showWelcomeText && <WelcomeText onClose={handleCloseWelcomeText} />}
         <Routes>
           <Route exact path="/" element={<Navigate replace to="/home" />} />
-          <Route path="/home" element={currentUser._id ? <Dashboard /> : <Home />} />
+          <Route
+            path="/home"
+            element={
+              showWelcomeText && currentUser._id ? (
+                <Dashboard />
+              ) : (
+                <Home />
+              )
+            }
+          />
           <Route path="/posts" element={<ContainerSearch />} />
           <Route path="/posts/:id" element={<PostDetails />} />
           <Route path="/auth" exact component={() => (!currentUser ? <AuthProvider /> : <Navigate to="/home" />)} />

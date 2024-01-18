@@ -12,48 +12,48 @@ import styled from "styled-components";
 
 
 
-const Navbar = () => {
-    const { currentUser } = useContext(AuthContext);
+const Navbar = ({ onNavbarClick }) => {
+  const { currentUser } = useContext(AuthContext);
 
-    const [clicked, setClicked] = useState(false);
-    const handleClick = () => {
-        setClicked(!clicked);
-    };
+  const [clicked, setClicked] = useState(false);
+  const handleClick = () => {
+    setClicked(!clicked);
+  };
 
-    if (currentUser._id === 0) {
+  if (currentUser._id === 0) {
 
-    }
+  }
 
-    const menuList = MenuList.map(({ url, title, viewauth, viewAlways }, index) => {
-        // return (
+  const menuList = MenuList.map(({ url, title, viewauth, viewAlways }, index) => {
+    // return (
 
-        //     <li key={index} onClick={handleClick}>
-        //         <NavLink to={url} className="active">{title}</NavLink>
-        //     </li>
-        // );
-        return ((viewAlways || (viewauth && currentUser._id != null) || (!viewauth && currentUser._id === null)) && (<li key={index} onClick={handleClick}>
-            <NavLink to={url} className="active">{title}</NavLink>
-        </li>));
+    //     <li key={index} onClick={handleClick}>
+    //         <NavLink to={url} className="active">{title}</NavLink>
+    //     </li>
+    // );
+    return ((viewAlways || (viewauth && currentUser._id != null) || (!viewauth && currentUser._id === null)) && (<li key={index} onClick={handleClick}>
+      <NavLink onClick={onNavbarClick} to={url} className="active">{title}</NavLink>
+    </li>));
 
-    });
+  });
 
-    return (
-        <nav className="fixedNavTop">
-            <Link to="/" className="logo"></Link>
-            <SearchBar />
+  return (
+    <nav className="fixedNavTop">
+      <Link to="/" className="logo"></Link>
+      <SearchBar />
 
-            <div className="menu-icon" onClick={handleClick}>
+      <div className="menu-icon" onClick={handleClick}>
 
-                <i className={clicked ? "fas fa-times" : "fas fa-bars"}></i>
-            </div>
+        <i className={clicked ? "fas fa-times" : "fas fa-bars"}></i>
+      </div>
 
-            <ul className={clicked ? "menu-list" : "menu-list close"}>
-                {menuList}
-            </ul>
+      <ul className={clicked ? "menu-list" : "menu-list close"}>
+        {menuList}
+      </ul>
 
 
-        </nav >
-    );
+    </nav >
+  );
 };
 
 export default Navbar;

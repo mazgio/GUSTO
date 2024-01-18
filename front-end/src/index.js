@@ -7,6 +7,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { reducers } from './reducers/index';
+import { WelcomeProvider } from "./WelcomeContext";
 
 // Correct the configuration of configureStore
 const store = configureStore({
@@ -17,10 +18,12 @@ const store = configureStore({
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <Provider store={store}>
-      <AuthProvider store={store}>
-        <App />
-      </AuthProvider>
-    </Provider>
-  </BrowserRouter>
+    <WelcomeProvider>
+      <Provider store={store}>
+        <AuthProvider store={store}>
+          <App />
+        </AuthProvider>
+      </Provider>
+    </WelcomeProvider>
+  </BrowserRouter >
 );
