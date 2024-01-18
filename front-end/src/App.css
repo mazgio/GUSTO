@@ -30,7 +30,7 @@ html {
 }
 .container {
   width: 100%;
-  background-image: "./components/images/logo-bold.png";
+  background-image: url("./components/images/logo-bold.png");
   position: relative;
   flex: 1;
   display: flex;
