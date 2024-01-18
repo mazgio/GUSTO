@@ -26,19 +26,21 @@ html {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  min-height: 100%;
+  height: 100vh;
 }
 .container {
   flex: 1;
+  height: 100%;
 }
 .welcome-text {
   background-color: #fff; /* Updated background color */
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 -2px 4px rgba(0, 0, 0, 0.1) inset; /* Added inset shadow on top */
   text-align: center;
   font-size: 18px;
   color: #333;
+  margin-top: 50px;
   margin-bottom: 20px;
   max-width: 600px; /* Added max-width for better readability on larger screens */
   margin-left: auto; /* Centering on larger screens */
