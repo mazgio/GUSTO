@@ -72,7 +72,7 @@ const BusinessSignup = () => {
     // settings
     const settings = {
       method: "POST",
-      body: JSON.stringify(newUser),
+      body: JSON.stringify(newBusinessUser),
       headers: {
         "Content-Type": "application/json",
       },
