@@ -1,56 +1,66 @@
 import React from "react";
-import { FaFacebook } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
-import "./Footer.css"
+import { IoLogoLinkedin, IoLogoGithub, IoDocumentText } from 'react-icons/io5';
+import "./Footer.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
-    return(
-        <div className="footer">
-            <div className="content">
-                <div className="row">
-                    <div className="column-logo">
-                        <h2 className="logo">
-                        </h2>
-                    </div>
-                    <div className="footer-column">
-                    <div className="column">
-                        <h4>About Us</h4>
-                        <ul className="list">
-                            <li><a href="http://localhost:3000/team">Team</a></li>
-                            <li>Clients</li>
-                            <li>Partners</li>
-                        </ul>
-                    </div>
-                    <div className="column">
-                        <h4>Services</h4>
-                        <ul className="list">
-                            <li>Places</li>
-                            <li>Products</li>
-                            <li>Recipes</li>
-                        </ul>
-                    </div>
-                    <div className="column">
-                        <h4>Contact Us</h4>
-                        <ul className="list">
-                            <li>E-Mail</li>
-                            <li>
-                                <span className="media-icon"><FaFacebook fill="#4267B2" /></span>
-                                <span className="media-icon"><FaTwitter fill=" #00acee" /></span>
-                                <span className="media-icon"><FaLinkedin fill="#0072b1" /></span>
-                            </li>
-                            <li>Call US</li>
-                        </ul>
-                    </div>
-                    </div>
-                </div>
-                <hr />
-                <div className="rights">
-                    <p>&copy; {new Date().getFullYear()} <span className="logo"></span> | All Rights Reserved</p>
-                </div>
+  const cvUrl = 'https://flowcv.com/resume/43747ulvs3';
+
+  return (
+    <div className="footer">
+      <div className="content">
+        <div className="row">
+          <div className="column-logo">
+            <h2 className="logo">
+            </h2>
+          </div>
+          <div className="footer-column">
+            <div className="column">
+              <h4><Link to='/about'>About us</Link></h4>
+              <ul className="list">
+                <li><Link to='/team'>Giorgio Mazzuca</Link></li>
+                <li>Clients</li>
+                <li>Partners</li>
+              </ul>
             </div>
+            <div className="column">
+              <h4><Link to='/services'>Services</Link></h4>
+              <ul className="list">
+                <li>Places</li>
+                <li>Products</li>
+                <li>Recipes</li>
+              </ul>
+            </div>
+            <div className="column">
+              <h4><Link to='/contact'>Contact us</Link></h4>
+              <ul className="list">
+                <li>
+                  <Link to="mailto:mazzucagiorgio@gmail.com">
+                    E-Mail
+                  </Link>
+                </li>
+                <li style={{ marginTop: '3px' }}>
+                  <Link to={"https://www.linkedin.com/in/giorgio-mazzuca/"} target="_blank" rel="noopener noreferrer">
+                    <span className="media-icon"><IoLogoLinkedin fill="#0072b1" /></span>
+                  </Link>
+                  <Link to={"https://github.com/mazgio"} target="_blank" rel="noopener noreferrer">
+                    <span className="media-icon"><IoLogoGithub fill="#211F1F" /></span>
+                  </Link>
+                  <Link to={cvUrl} target="_blank" rel="noopener noreferrer">
+                    <span className="media-icon"><IoDocumentText fill="#1DA1F2" /></span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-    )
-}
+        <hr />
+        <div className="rights">
+          <p>&copy; {new Date().getFullYear()} <span className="logo"></span> | All Rights Reserved</p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Footer;
