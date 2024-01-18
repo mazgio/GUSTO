@@ -1,130 +1,60 @@
-import { Icon } from "react-icons-kit";
-import { facebook_1 } from 'react-icons-kit/ikons/facebook_1';
-import { instagram } from 'react-icons-kit/ikons/instagram';
-import { twitter } from 'react-icons-kit/ikons/twitter';
-import { pin_2 } from 'react-icons-kit/ikons/pin_2';
-import { mail } from 'react-icons-kit/ikons/mail';
-import teamlogo from "../../images/team-logo.png";
-import member1 from "../../images/member-1.png";
-import member2 from "../../images/member-2.png";
-import member3 from "../../images/member-3.png";
-import member4 from "../../images/member-4.png";
+import { IconContext } from 'react-icons';
+import { IoLogoLinkedin, IoLogoGithub, IoDocumentText } from 'react-icons/io5';
+import { AiOutlineMail } from 'react-icons/ai';
+import teamlogo from '../../images/team-logo.png';
+import member2 from '../../images/member-2.png';
+import { Link } from 'react-router-dom';
 
-import "./Team.css";
+import './Team.css';
 
-
+// Import necessary components and styles
 
 const Team = () => {
-    return (
-        <div className="team">
-            <div className="team-row">
-                <div className="team-box">
-                    <div className="team-photo">
-                        <img alt="" src={member1} />
-                    </div>
-                    <div className="top-part">
-                        <img src={teamlogo} alt="" />
-                    </div>
-                    <div className="bottom-part">
-                        <h2>Mohammed Atwan</h2>
-                        <h4>Frontend Developer</h4>
-                        <h6>@teamgusto</h6>
-                        <div className="team-social">
-                            <Icon className="team-icon" icon={facebook_1} />
-                            <Icon className="team-icon" icon={instagram} />
-                            <Icon className="team-icon" icon={twitter} />
-                        </div>
-                        <div className="team-address">
-                            <Icon icon={pin_2} />
-                            <span>Bochum</span>
-                        </div>
-                        <div className="team-email">
-                            <Icon icon={mail} />
-                            <span>teamgusto410@gmail.com</span>
-                        </div>
-                    </div>
-                </div>
-                <div className="team-box">
-                    <div className="team-photo">
-                        <img alt="" src={member2} />
-                    </div>
-                    <div className="top-part">
-                        <img src={teamlogo} alt="" />
-                    </div>
-                    <div className="bottom-part">
-                        <h2>Giorgio Mazzuca</h2>
-                        <h4>Frontend Developer</h4>
-                        <h6>@teamgusto</h6>
-                        <div className="team-social">
-                            <Icon className="team-icon" icon={facebook_1} />
-                            <Icon className="team-icon" icon={instagram} />
-                            <Icon className="team-icon" icon={twitter} />
-                        </div>
-                        <div className="team-address">
-                            <Icon icon={pin_2} />
-                            <span>Berlin</span>
-                        </div>
-                        <div className="team-email">
-                            <Icon icon={mail} />
-                            <span>teamgusto410@gmail.com</span>
-                        </div>
-                    </div>
-                </div>
-                <div className="team-box">
-                    <div className="team-photo">
-                        <img alt="" src={member3} />
-                    </div>
-                    <div className="top-part">
-                        <img src={teamlogo} alt="" />
-                    </div>
-                    <div className="bottom-part">
-                        <h2>Andreia Arcanjo Coito</h2>
-                        <h4>Backend Developer</h4>
-                        <h6>@teamgusto</h6>
-                        <div className="team-social">
-                            <Icon className="team-icon" icon={facebook_1} />
-                            <Icon className="team-icon" icon={instagram} />
-                            <Icon className="team-icon" icon={twitter} />
-                        </div>
-                        <div className="team-address">
-                            <Icon icon={pin_2} />
-                            <span>Bochum</span>
-                        </div>
-                        <div className="team-email">
-                            <Icon icon={mail} />
-                            <span>teamgusto410@gmail.com</span>
-                        </div>
-                    </div>
-                </div>
-                <div className="team-box">
-                    <div className="team-photo">
-                        <img alt="" src={member4} />
-                    </div>
-                    <div className="top-part">
-                        <img src={teamlogo} alt="" />
-                    </div>
-                    <div className="bottom-part">
-                        <h2>Daniel Ramacher</h2>
-                        <h4>Backend Developer</h4>
-                        <h6>@teamgusto</h6>
-                        <div className="team-social">
-                            <Icon className="team-icon" icon={facebook_1} />
-                            <Icon className="team-icon" icon={instagram} />
-                            <Icon className="team-icon" icon={twitter} />
-                        </div>
-                        <div className="team-address">
-                            <Icon icon={pin_2} />
-                            <span>Bochum</span>
-                        </div>
-                        <div className="team-email">
-                            <Icon icon={mail} />
-                            <span>teamgusto410@gmail.com</span>
-                        </div>
-                    </div>
-                </div>
+  const cvUrl = 'https://flowcv.com/resume/43747ulvs3';
+
+
+  return (
+    <div className="team">
+      <div className="team-row">
+        <div className="team-box">
+          <div className="team-photo">
+            <img alt="" src={member2} />
+          </div>
+          <div className="top-part">
+            <img src={teamlogo} alt="" />
+          </div>
+          <div className="bottom-part">
+            <h2>Giorgio Mazzuca</h2>
+            <h4>Fullstack Developer</h4>
+
+            <div className="team-social">
+              <Link to='mailto:mazzucagiorgio@gmail.com' style={{ marginRight: '10px' }}>
+                <IconContext.Provider value={{ size: '32px', color: '#211F1F' }}>
+                  <AiOutlineMail />
+                </IconContext.Provider>
+                <span style={{ marginLeft: '10px' }}></span>
+              </Link>
+              <IconContext.Provider value={{ size: '32px', color: '#0077B5', marginRight: '10px' }}>
+                <Link to={"https://www.linkedin.com/in/giorgio-mazzuca/"} target="_blank" rel="noopener noreferrer">
+                  <IoLogoLinkedin style={{ size: '32px', marginRight: '10px' }} />
+                </Link>
+              </IconContext.Provider>
+              <IconContext.Provider value={{ size: '32px', marginRight: '10px' }}>
+                <Link to={"https://github.com/mazgio"} target="_blank" rel="noopener noreferrer">
+                  <IoLogoGithub style={{ size: '32px', color: '#211F1F', marginRight: '10px' }} />
+                </Link>
+              </IconContext.Provider>
+              <IconContext.Provider value={{ size: '32px', color: '#1DA1F2' }}>
+                <Link to={cvUrl} target="_blank" rel="noopener noreferrer">
+                  <IoDocumentText size={24} />
+                </Link>
+              </IconContext.Provider>
             </div>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Team;

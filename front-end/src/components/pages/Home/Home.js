@@ -31,136 +31,136 @@ import { Typography } from "@material-ui/core";
 const Home = () => {
 
 
-    return (
-        <>
-            <Carousel style={{ margin: '30px' }} showArrows={true} showThumbs={false} autoPlay autoPlaySpeed="3000" infiniteLoop={true}>
-                <img alt="" src={image1} className="slider-img" />
-                <img alt="" src={image2} className="slider-img" />
-                <img alt="" src={image3} className="slider-img" />
-                <img alt="" src={image4} className="slider-img" />
-                <img alt="" src={image5} className="slider-img" />
-                <img alt="" src={iceCream} className="slider-img" />
-            </Carousel>
-            {/* Start Services Section */}
+  return (
+    <>
+      <Carousel style={{ margin: '30px' }} showArrows={true} showThumbs={false} autoPlay autoPlaySpeed="3000" infiniteLoop={true}>
+        <img alt="" src={image1} className="slider-img" />
+        <img alt="" src={image2} className="slider-img" />
+        <img alt="" src={image3} className="slider-img" />
+        <img alt="" src={image4} className="slider-img" />
+        <img alt="" src={image5} className="slider-img" />
+        <img alt="" src={iceCream} className="slider-img" />
+      </Carousel>
+      {/* Start Services Section */}
 
-            <div className="services">
-                <Typography>
-                    <h2 className="servicesTitle">Services</h2>
-                </Typography>
+      <div className="services">
+        <Typography>
+          <h2 className="servicesTitle">Services</h2>
+        </Typography>
 
-                <div className="services-container">
+        <div className="services-container">
 
-                    <div className="services-box">
-                        <img src={services1} alt="" />
-                        <div className="services-content">
-                            <h3>Bio Products</h3>
-                            <p>Here we are offering you the best food quality around you</p>
-                        </div>
-                    </div>
-
-                    <div className="services-box">
-                        <img src={services2} alt="" />
-                        <div className="services-content">
-                            <h3>Bakeries</h3>
-                            <p>Here we are offering you the best food quality around you</p>
-                        </div>
-                    </div>
-
-                    <div className="services-box">
-                        <img src={services3} alt="" />
-                        <div className="services-content">
-                            <h3>Desserts</h3>
-                            <p>Here we are offering you the best food quality around you</p>
-                        </div>
-                    </div>
-
-                    <div className="services-box">
-                        <img src={services4} alt="" />
-                        <div className="services-content">
-                            <h3>Food Markets</h3>
-                            <p>Here we are offering you the best food quality around you</p>
-                        </div>
-                    </div>
-
-                    <div className="services-box">
-                        <img src={services5} alt="" />
-                        <div className="services-content">
-                            <h3>Halal Products</h3>
-                            <p>Here we are offering you the best food quality around you</p>
-                        </div>
-                    </div>
-
-                    <div className="services-box">
-                        <img src={services6} alt="" />
-                        <div className="services-content">
-                            <h3>Recipes</h3>
-                            <p>Here we are offering you the best food quality around you</p>
-                        </div>
-                    </div>
-
-                    <div className="services-box">
-                        <img src={services7} alt="" />
-                        <div className="services-content">
-                            <h3>Restaurants</h3>
-                            <p>Here we are offering you the best food quality around you</p>
-                        </div>
-                    </div>
-
-                    <div className="services-box">
-                        <img src={services8} alt="" />
-                        <div className="services-content">
-                            <h3>Spices & Herbs</h3>
-                            <p>Here we are offering you the best food quality around you</p>
-                        </div>
-                    </div>
-
-                    <div className="services-box">
-                        <img src={services9} alt="" />
-                        <div className="services-content">
-                            <h3>Vegan</h3>
-                            <p>Here we are offering you the best food quality around you</p>
-                        </div>
-                    </div>
-
-                </div>
+          <div className="services-box">
+            <img src={services1} alt="" />
+            <div className="services-content">
+              <h3>Bio Products</h3>
+              <p>Here we are offering you the best food quality around you</p>
             </div>
-            {/* End Services Section */}
+          </div>
 
-            {/* Start Partner Section */}
-            <div className="partners">
-                <h2>Our Partners</h2>
-                <div className="partners-container">
-                    <div className="partners-box">
-                        <img alt="" src={mitVergnügen} />
-                    </div>
-                    <div className="partners-box">
-                        <img alt="" src={metroPartner} />
-                    </div>
-                    <div className="partners-box">
-                        <img alt="" src={biobread} />
-                    </div>
-                    <div className="partners-box">
-                        <img alt="" src={farmFresh} />
-                    </div>
+          <div className="services-box">
+            <img src={services2} alt="" />
+            <div className="services-content">
+              <h3>Bakeries</h3>
+              <p>Here we are offering you the best food quality around you</p>
+            </div>
+          </div>
 
-                    <div className="partners-box">
-                        <img alt="" src={mashrooms} />
-                    </div>
-                    <div className="partners-box">
-                        <img alt="" src={dontWasteFood} />
-                    </div>
+          <div className="services-box">
+            <img src={services3} alt="" />
+            <div className="services-content">
+              <h3>Desserts</h3>
+              <p>Here we are offering you the best food quality around you</p>
+            </div>
+          </div>
 
-                    <div className="partners-box">
-                        <img alt="" src={tooGoodToGo} />
-                    </div>
-                    <div className="partners-box">
-                        <img alt="" src={honey} />
-                    </div>
-                </div>
-            </div>;
-            {/* End Partner Section */}
-        </>
-    );
+          <div className="services-box">
+            <img src={services4} alt="" />
+            <div className="services-content">
+              <h3>Food Markets</h3>
+              <p>Here we are offering you the best food quality around you</p>
+            </div>
+          </div>
+
+          <div className="services-box">
+            <img src={services5} alt="" />
+            <div className="services-content">
+              <h3>Halal Products</h3>
+              <p>Here we are offering you the best food quality around you</p>
+            </div>
+          </div>
+
+          <div className="services-box">
+            <img src={services6} alt="" />
+            <div className="services-content">
+              <h3>Recipes</h3>
+              <p>Here we are offering you the best food quality around you</p>
+            </div>
+          </div>
+
+          <div className="services-box">
+            <img src={services7} alt="" />
+            <div className="services-content">
+              <h3>Restaurants</h3>
+              <p>Here we are offering you the best food quality around you</p>
+            </div>
+          </div>
+
+          <div className="services-box">
+            <img src={services8} alt="" />
+            <div className="services-content">
+              <h3>Spices & Herbs</h3>
+              <p>Here we are offering you the best food quality around you</p>
+            </div>
+          </div>
+
+          <div className="services-box">
+            <img src={services9} alt="" />
+            <div className="services-content">
+              <h3>Vegan</h3>
+              <p>Here we are offering you the best food quality around you</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      {/* End Services Section */}
+
+      {/* Start Partner Section */}
+      <div className="partners">
+        <h2>Our Partners</h2>
+        <div className="partners-container">
+          <div className="partners-box">
+            <img alt="" src={mitVergnügen} />
+          </div>
+          <div className="partners-box">
+            <img alt="" src={metroPartner} />
+          </div>
+          <div className="partners-box">
+            <img alt="" src={biobread} />
+          </div>
+          <div className="partners-box">
+            <img alt="" src={farmFresh} />
+          </div>
+
+          <div className="partners-box">
+            <img alt="" src={mashrooms} />
+          </div>
+          <div className="partners-box">
+            <img alt="" src={dontWasteFood} />
+          </div>
+
+          <div className="partners-box">
+            <img alt="" src={tooGoodToGo} />
+          </div>
+          <div className="partners-box">
+            <img alt="" src={honey} />
+          </div>
+        </div>
+      </div>
+      {/* End Partner Section */}
+    </>
+  );
 };
 
 export default Home;

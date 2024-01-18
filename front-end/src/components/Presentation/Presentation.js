@@ -15,7 +15,7 @@ const Logo = styled.img`
 const Presentation = () => {
   return (
     <>
-      <Link to="/team" className='teamAbout' >  <Logo src={logo} />
+      <Link to="/team" className='teamAbout' >  <Logo src={ logo} />
       </Link>
       <div className='displayRel'>
         <p className='textPresentation'>Gusto is a new start-up, who focus on capitalizing upon a perceived market demand by developing a viable product, service, or platform. Gusto is a startup born from the minds of a group of 4 young web developers,headquartered in Berlin but we are expanding throughout Germany.

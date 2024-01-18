@@ -30,7 +30,7 @@ function App() {
   return (
     <div className="home">
       <Navbar />
-      <div className="container">
+      <div>
         <Routes>
           <Route exact path="/" element={<Navigate replace to="/home" />} />
           <Route path="/home" element={currentUser._id ? <Dashboard /> : <Home />} />
@@ -46,7 +46,7 @@ function App() {
           <Route path="/success" element={<Success />} />
           <Route path="/team" element={<Team />} />
           <Route path="/customer" element={<CustomerSignup setCurrentUser={setCurrentUser} />} />
-          <Route path="/business" element={<BusinessSignup setCurrentUser={setCurrentUser} />} />
+          <Route path="/signup/business" element={<BusinessSignup setCurrentUser={setCurrentUser} />} />
           <Route path="/profile" element={<ProtectedRoute auth={(currentUser._id != null)}>
             <Dashboard />
           </ProtectedRoute>} />
