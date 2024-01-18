@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Routes, Route, Navigate, useNavigate, Link } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar.js";
 import Home from "./components/pages/Home/Home.js";
 import About from "./components/pages/About/About.js";
@@ -24,31 +24,16 @@ import Team from "./components/pages/About/Team.js";
 
 
 function App() {
-  const navigate = useNavigate();
 
   const { currentUser, setCurrentUser } = useContext(AuthContext);
-  const handleNavigation = (path) => {
-    // Check if any property indicating user authentication exists
-    if (!currentUser || currentUser._id === null) {
-      console.log('Redirecting to /home');
-      navigate('/home', { replace: true });
-    } else {
-      navigate(path);
-    };
-  };
+
   return (
     <div className="home">
       <Navbar />
       <div className="container">
         <Routes>
-          <Route
-            path="/"
-            element={<Home />}
-          />
-          <Route
-            path="/home"
-            element={currentUser._id ? <Dashboard /> : <Navigate to="/" />}
-          />
+          <Route exact path="/" element={<Navigate replace to="/home" />} />
+          <Route path="/home" element={currentUser._id ? <Dashboard /> : <Home />} />
           <Route path="/posts" element={<ContainerSearch />} />
           <Route path="/posts/:id" element={<PostDetails />} />
           <Route path="/auth" exact component={() => (!currentUser ? <AuthProvider /> : <Navigate to="/home" />)} />
@@ -61,7 +46,7 @@ function App() {
           <Route path="/success" element={<Success />} />
           <Route path="/team" element={<Team />} />
           <Route path="/customer" element={<CustomerSignup setCurrentUser={setCurrentUser} />} />
-          <Route path="/business" element={<BusinessSignup setCurrentUser={setCurrentUser} />} />
+          <Route path="/signup/business" element={<BusinessSignup setCurrentUser={setCurrentUser} />} />
           <Route path="/profile" element={<ProtectedRoute auth={(currentUser._id != null)}>
             <Dashboard />
           </ProtectedRoute>} />
@@ -71,6 +56,6 @@ function App() {
       <Footer />
     </div >
   );
-};
+}
 
 export default App;
