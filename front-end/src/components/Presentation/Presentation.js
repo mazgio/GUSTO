@@ -18,7 +18,6 @@ const Logo = styled.img`
 
 const TextPresentation = styled.p`
   margin-bottom: 20px;
-  color: #333;
   font-size: 16px;
   text-align: center;
 `;
@@ -42,7 +41,7 @@ const Presentation = ({ children }) => {
   return (
     <Container>
       <Logo src={logo} />
-      <TextPresentation className='textPresentation'>"Gusto is a new start-up, focused on capitalizing upon a perceived market demand by developing a viable product, service, or platform. Gusto is a startup born from the mind of <MoreAboutLink to='/team'>Giorgio Mazzuca</MoreAboutLink>, a young web developer headquartered in Berlin, but expanding throughout Germany. The basic idea is to bring food culture to all people who love or do not love food and to introduce different culinary cultures."
+      <TextPresentation className='textPresentation'>Gusto is a new start-up, focused on capitalizing upon a perceived market demand by developing a viable product, service, or platform. Gusto is a startup born from the mind of <MoreAboutLink to='/team'>Giorgio Mazzuca</MoreAboutLink>, a young web developer headquartered in Berlin, but expanding throughout Germany. The basic idea is to bring food culture to all people who love or do not love food and to introduce different culinary cultures.
       </TextPresentation>
       {children}
     </Container>
