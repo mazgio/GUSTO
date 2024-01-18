@@ -32,7 +32,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="column">
-              <h4><Link to='/contact'>Contact us</Link></h4>
+              <h4><Link to='/contact'>Contact</Link></h4>
               <ul className="list">
                 <li>
                   <Link to="mailto:mazzucagiorgio@gmail.com">

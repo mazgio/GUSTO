@@ -35,7 +35,7 @@ function App() {
       <Navbar />
       <div className="container">
         <Routes>
-          <Route exact path="/" element={<Navigate replace to="/home" />} />
+          {/* <Route exact path="/" element={<Navigate replace to="/home" />} /> */}
           <Route path="/home" element={currentUser._id ? <Dashboard /> : <Home />} />
           <Route path="/posts" element={<ContainerSearch />} />
           <Route path="/posts/:id" element={<PostDetails />} />
