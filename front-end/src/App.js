@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar.js";
+import RootComponent from "./components/RootComponent/RootComponent.js";
 import Home from "./components/pages/Home/Home.js";
 import About from "./components/pages/About/About.js";
 import Services from "./components/pages/Services.js";
@@ -32,8 +33,14 @@ function App() {
       <Navbar />
       <div className="container">
         <Routes>
-          <Route exact path="/" element={<Navigate replace to="/home" />} />
-          <Route path="/home" element={currentUser._id ? <Dashboard /> : <Home />} />
+          <Route
+            path="/"
+            element={currentUser._id ? <Navigate to="/home" /> : <RootComponent />}
+          />
+          <Route
+            path="/home"
+            element={currentUser._id ? <Dashboard /> : <Home />}
+          />
           <Route path="/posts" element={<ContainerSearch />} />
           <Route path="/posts/:id" element={<PostDetails />} />
           <Route path="/auth" exact component={() => (!currentUser ? <AuthProvider /> : <Navigate to="/home" />)} />
