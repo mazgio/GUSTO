@@ -6,6 +6,13 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   const cvUrl = 'https://flowcv.com/resume/43747ulvs3';
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // Optional: Adds smooth scrolling behavior
+    });
+  };
+
   return (
     <div className="footer">
       <div className="content">
@@ -18,7 +25,7 @@ const Footer = () => {
             <div className="column">
               <h4><Link to='/about'>About us</Link></h4>
               <ul className="list">
-                <li><Link to='/team'>Giorgio Mazzuca</Link></li>
+                <li><Link to='/team' onClick={scrollToTop}>Giorgio Mazzuca</Link></li>
                 <li>Clients</li>
                 <li>Partners</li>
               </ul>
