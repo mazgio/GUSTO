@@ -17,6 +17,7 @@ const Logo = styled.img`
 `;
 
 const TextPresentation = styled.p`
+  color: #fff;
   margin-bottom: 20px;
   font-size: 16px;
   text-align: center;
