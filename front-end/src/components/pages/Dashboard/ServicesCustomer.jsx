@@ -32,13 +32,13 @@ const Banner = styled.div`
   }
   @media screen and (max-width: 700px) {
     margin-top: 0px;
-    height: 39vh;
+    height: 20vh;
     background-size: contain;
   }
   @media screen and (max-width: 400px) {
     margin-top: 0px;
-    height: 27vh;
-  } ;
+    height: 19vh;
+  }
 `;
 
 export const ServicesCustomer = () => {

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getPostsBySearch } from '../../actions/posts';
@@ -12,59 +12,58 @@ import { collapseClasses } from "@mui/material";
 
 
 const theme = createTheme({
-    primary: {
-        main: '#fff',
+  primary: {
+    main: '#fff',
 
-    },
+  },
 });
 
 
 const SearchBar = () => {
+  const [search, setSearch] = useState('');
+  const [tags, setTags] = useState([]);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const classes = useStyles();
 
-    const [search, setSearch] = useState('');
-    const [tags, setTags] = useState([]);
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const classes = useStyles();
+  const searchPost = () => {
+    if (search.trim() || tags.length > 0) {
+      dispatch(getPostsBySearch({ search, tags: tags.join(',') }));
+      navigate(`/posts?searchQuery=${search || 'none'}&tags=${tags.join(',')}`);
+      // Reset the search state to an empty string
+      setSearch('');
+    } else {
+      navigate('/');
+    }
+  };
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      searchPost();
+    }
+  };
 
-    const searchPost = () => {
-        if (search.trim() || tags) {
-            console.log("search", search);
-            dispatch(getPostsBySearch({ search, tags: tags.join(',') }));
-            navigate(`/posts?searchQuery=${search || 'none'}&tags=${tags.join(',')}`);
-            console.log("navigate", navigate);
-        } else {
-            navigate('/');
-        }
-    };
 
-    const handleKeyPress = (e) => {
-        if (e.keyCode === 13) {
-            searchPost();
-        }
-    };
+  return (
 
-    return (
-
-        <div className={classes.containerSearch}>
-            <ThemeProvider theme={theme}>
-                <TextField
-                    className={classes.text}
-                    label=""
-                    onChange={(e) => setSearch(e.target.value)}
-
-                    InputProps={{
-
-                        endAdornment: (
-                            <InputAdornment type="text" onKeyDown={handleKeyPress}>
-                                <SearchIcon className={classes.searchIcon} onClick={searchPost} />
-                            </InputAdornment>
-                        )
-                    }}
-                />
-            </ThemeProvider>
-        </div >
-    );
+    <div className={classes.containerSearch}>
+      <ThemeProvider theme={theme}>
+        <TextField
+          className={classes.text}
+          label=""
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          onKeyDown={handleKeyPress}  // Make sure this is here
+          InputProps={{
+            endAdornment: (
+              <InputAdornment type="text">
+                <SearchIcon className={classes.searchIcon} onClick={searchPost} />
+              </InputAdornment>
+            ),
+          }}
+        />
+      </ThemeProvider>
+    </div >
+  );
 
 
 
