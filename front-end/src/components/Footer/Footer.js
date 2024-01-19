@@ -23,7 +23,7 @@ const Footer = () => {
                 <li>Partners</li>
               </ul>
             </div>
-            <div className="column">
+            <div className="column" style={{ marginRight: "28px" }}>
               <h4><Link to='/services'>Services</Link></h4>
               <ul className="list">
                 <li>Places</li>
